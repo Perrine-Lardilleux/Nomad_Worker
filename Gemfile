@@ -5,6 +5,8 @@ ruby '2.6.6'
 
 gem 'nokogiri', '~> 1.8'
 
+gem 'pundit'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.7'
 # Use postgresql as the database for Active Record
@@ -35,7 +37,9 @@ gem 'devise'
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'
 gem 'simple_form'
-group :development, :test do  gem 'pry-byebug'
+group :development, :test do
+  gem 'faker'
+  gem 'pry-byebug'
   gem 'pry-rails'
   gem 'dotenv-rails'
 
