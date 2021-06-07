@@ -8,9 +8,10 @@ const initMapbox = () => {
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
     const map = new mapboxgl.Map({
       container: 'map',
-      style: 'mapbox://styles/mapbox/streets-v9'
+      style: 'mapbox://styles/perrinelardilleux/ckpmwhlu855nc17kvaltghj1c'
     });
   }
 };
 
 export { initMapbox };
+
