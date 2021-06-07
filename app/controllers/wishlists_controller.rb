@@ -1,7 +1,6 @@
 class WishlistsController < ApplicationController
   def index
     skip_policy_scope
-    @wishlists = Wishlist.all
   end
 
   def create
@@ -18,5 +17,6 @@ class WishlistsController < ApplicationController
     @wishlist = Wishlist.find(params[:id])
     authorize(@wishlist)
     @wishlist.destroy
+    redirect_to wishlists_path
   end
 end

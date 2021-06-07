@@ -6,10 +6,10 @@ class WishlistPolicy < ApplicationPolicy
   end
 
   def create?
-    record.user == current_user
+    record.user == user
   end
 
   def destroy?
-    record.user == current_user
+    record.user == user
   end
 end

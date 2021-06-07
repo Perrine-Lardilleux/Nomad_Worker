@@ -3,7 +3,7 @@
   <p><%= @city.coordinates %></p>
   <p><%= @city.temperature %></p>
   <p><%= @city.data %></p>
-  <p>---------------------------Reviews---------------------------p>
+  <p>---------------------------Reviews---------------------------</p>
   <p><% @city.reviews.each do |review| %></p>
     <%= review.content %>
   <% end %>
