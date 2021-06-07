@@ -1,4 +1,8 @@
 class WishlistsController < ApplicationController
+  def index
+    skip_policy_scope
+  end
+
   def create
     @wishlist = Wishlist.new(user: current_user, city: params[:city_id])
     authorize(@wishlist)
@@ -13,5 +17,6 @@ class WishlistsController < ApplicationController
     @wishlist = Wishlist.find(params[:id])
     authorize(@wishlist)
     @wishlist.destroy
+    redirect_to wishlists_path
   end
 end

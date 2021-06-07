@@ -1,3 +1,12 @@
+<div class="container my-4">
+  <h1>Cities Index</h1>
+  <ul class="list-group list-group-flush my-4">
+  <% @cities.each do |city| %>
+    <li class="list-group-item my-1"><%= link_to city.name, city_path(city) %></li>
+  <% end %>
+  </ul>
+
+<h1>Cities Index</h1>
 <div id="map"
      style="width: 100%; height: 400px;"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
@@ -71,3 +80,7 @@
   <div class="footer-copyright">
     Made with <i class="fas fa-heart"></i> at Nomad Worker
   </div>
+</div>
+
+
+</div>
