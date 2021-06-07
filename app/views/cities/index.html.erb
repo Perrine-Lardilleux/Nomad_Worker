@@ -1,3 +1,8 @@
 <div class="container my-4">
   <h1>Cities Index</h1>
+  <ul class="list-group list-group-flush my-4">
+  <% @cities.each do |city| %>
+    <li class="list-group-item my-1"><%= link_to city.name, city_path(city) %></li>
+  <% end %>
+  </ul>
 </div>

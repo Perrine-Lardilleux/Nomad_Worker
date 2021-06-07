@@ -1,3 +1,7 @@
 <div class="container my-4">
-  <h1>Cities Show</h1>
+  <h1><%= @city.name %></h1>
+  <p><%= @city.coordinates %></p>
+  <p><%= @city.temperature %></p>
+  <p><%= @city.data %></p>
+  <p><%= @city.reviews.first.content %></p>
 </div>
