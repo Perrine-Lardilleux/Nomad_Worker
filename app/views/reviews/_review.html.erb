@@ -1,0 +1,6 @@
+<p id="review-<%= review.id %>"><%= review.content %>
+<% if review.user == current_user %>
+<%= link_to 'Delete', review_path(review), method: :delete, data: { confirm: 'Are you sure?' },
+ class:"btn-danger", remote: true %>
+<% end %>
+</p>

@@ -4,7 +4,11 @@
   <p><%= @city.temperature %></p>
   <p><%= @city.data %></p>
   <p>---------------------------Reviews---------------------------</p>
-  <p><% @city.reviews.each do |review| %></p>
-    <%= review.content %>
-  <% end %>
+  <p><%= render @city.reviews || "Nobody has reviwed #{@city.name} yet, have you visited it? Leave a review for others!" %></p>
+
+  <%= simple_form_for([ @city, @review ], remote: true) do |f| %>
+    <%= f.input :content, label: 'Leave a review', as: :text %>
+  <%= f.button :submit, class:"btn-success", value: 'Add review' %>
+<% end %>
+<%= link_to 'Back', root_path, class:"btn-primary" %>
 </div>
