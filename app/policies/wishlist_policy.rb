@@ -1,4 +1,4 @@
-class CityPolicy < ApplicationPolicy
+class WishlistPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
