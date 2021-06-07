@@ -7,5 +7,7 @@ class CitiesController < ApplicationController
 
   def show
     @city = City.find(params[:id])
+    @review = Review.new # So we can render the review form here
+    authorize(@city)
   end
 end

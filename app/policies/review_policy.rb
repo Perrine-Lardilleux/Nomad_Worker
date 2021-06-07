@@ -6,14 +6,14 @@ class ReviewPolicy < ApplicationPolicy
   end
 
   def create?
-    record.user == current_user
+    record.user == user
   end
 
   def destroy?
-    record.user == current_user
+    record.user == user
   end
 
   def update?
-    record.user == current_user
+    record.user == user
   end
 end
