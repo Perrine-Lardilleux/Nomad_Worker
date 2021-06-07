@@ -1,11 +1,14 @@
 class ReviewsController < ApplicationController
   def create
-    @review = Review.new(user: current_user, city: params[:city_id], content: params[:content]) # Content has to be sent
+    @city = City.find(params[:city_id])
+    @review = Review.new(review_params)
+    @review.city = @city
+    @review.user = current_user
     authorize(@review)
     if @review.save
-      continue
+      redirect_to city_path(@city)
     else
-      raise
+      render 'cities/show'
     end
   end
 
@@ -18,5 +21,11 @@ class ReviewsController < ApplicationController
     @review = Review.find(params[:id])
     authorize(@review)
     @review.destroy
+  end
+
+  private
+
+  def review_params
+    params.require(:review).permit(:content)
   end
 end

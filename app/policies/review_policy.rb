@@ -1,4 +1,4 @@
-class CityPolicy < ApplicationPolicy
+class ReviewPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
@@ -6,14 +6,14 @@ class CityPolicy < ApplicationPolicy
   end
 
   def create?
-    record.user == current_user
+    record.user == user
   end
 
   def destroy?
-    record.user == current_user
+    record.user == user
   end
 
   def update?
-    record.user == current_user
+    record.user == user
   end
 end
