@@ -1,4 +1,16 @@
 <div class="container my-4">
-  <h1>Expensive Package</h1>
-  <%= @data %>
+  <div class="row align-items-center pt-4">
+    <h1>Expensive Package</h1>
+    <%= link_to 'Back', city_path(@city), class: 'btn btn-primary ml-3' %>
+  </div>
+  <% @data.each do |key, value|%>
+    <div class="card my-5" style="width: 40rem;">
+      <div class="card-header"><%= key %></div>
+      <ul class="list-group list-group-flush">
+        <% value.each do |subcategory, price| %>
+          <li class="list-group-item"><%= subcategory %> $<%= price %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 </div>
