@@ -1,10 +1,13 @@
 <div class="container my-4">
-  <h1><%= @city.name %></h1>
+  <h1><%= @city.name %>, <%= @city.country.name %></h1>
   <p><%= @city.coordinates %></p>
-  <p><%= @city.temperature %></p>
+  <p>Median yearly temperature: <%= @city.temperature %></p>
   <p><%= @city.data %></p>
+  <div id="wishlists">
+    <%= render partial: "wishlists" %>
+  </div>
   <p>---------------------------Reviews---------------------------</p>
-  <p><%= render @city.reviews || "Nobody has reviwed #{@city.name} yet, have you visited it? Leave a review for others!" %></p>
+  <%= render @city.reviews || "Nobody has reviewed #{@city.name} yet, have you visited it? Leave a review for others!" %>
 
   <%= simple_form_for([ @city, @review ], remote: true) do |f| %>
     <%= f.input :content, label: 'Leave a review', as: :text %>
