@@ -65,11 +65,16 @@ puts "Creating 50 reviews"
     )
 end
 
-puts "Creating 50 wishlists"
-50.times do |i|
+puts "Creating 10 wishlists"
+10.times do |i|
+  city = City.all.sample
+  user = User.all.sample
+  while user.wishlists?(city) # Dumb and dangerous, but I'm tired. Keep wishlists number < users or crash
+    user = User.all.sample
+  end
   Wishlist.create!(
-    city: City.all.sample,
-    user: User.all.sample
+    city: city,
+    user: user
     )
 end
 
