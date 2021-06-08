@@ -6,6 +6,9 @@ Rails.application.routes.draw do
     resources :reviews, only: [:create, :update, :destroy]
     post "create_wishlist", to: "wishlists#create_index"
     resources :wishlists, only: [:create]
+    get '/economical', to: 'pages#economical', as: 'economical'
+    get '/expensive', to: 'pages#expensive', as: 'expensive'
   end
   resources :wishlists, only: [:index, :destroy]
+  get 'my_profile', to: 'pages#my_profile', as: 'my_profile'
 end

@@ -6,8 +6,8 @@ class CitiesController < ApplicationController
 
     @markers = @cities.map do |city|
       {
-        lat: city.coordinates.split[0].to_f,
-        lng: city.coordinates.split[1].to_f
+        lat: city.latitude,
+        lng: city.longitude
       }
     end
     # @markers = [{lat: -23.5507, lng: -46.6334 }]

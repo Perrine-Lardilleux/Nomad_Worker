@@ -7,11 +7,26 @@
 
 <div class="container my-4">
   <div class="content mb-5">
-    <p><%= @city.coordinates %></p>
+    <p>Latitude: <%= @city.latitude %> | Longitude: <%= @city.longitude %></p>
     <p>Median yearly temperature: <%= @city.temperature %></p>
-    <p><%= @city.data %></p>
     <div id="wishlists">
       <%= render partial: "cities/wishlists" %>
+    </div>
+    <div class="row justify-content-around">
+      <div class="card my-4 col-4" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Economical Package</h5>
+          <p class="card-text">Price: $500</p>
+          <%= link_to "See more", city_economical_path(@city) %>
+        </div>
+      </div>
+      <div class="card my-4 col-4" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Expensive Package</h5>
+          <p class="card-text">Price: $1000</p>
+          <%= link_to "See more", city_expensive_path(@city) %>
+        </div>
+      </div>
     </div>
   </div>
   <div class="review border-top pt-4 pb-4">
