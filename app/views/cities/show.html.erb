@@ -1,8 +1,7 @@
-<div class="card-category text-center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/random/?<%= @city.name %>,landscape)">
-  <div class="link">
-    <p><%=@city.name%>
-      <br><%=@city.country.name%>
-    </p>
+<div class="banner text-center" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://source.unsplash.com/random/?<%= @city.name %>,landscape);">
+  <div class="container link">
+    <h1><strong><%=@city.name%> </strong></h1>
+    <p><br><strong><%=@city.country.name%></strong></p>
   </div>
 </div>
 
