@@ -18,6 +18,17 @@ CITIES = [
   { city: 'Oslo', coordinates: '59.855058 10.814466'}
 ]
 
+
+data = {
+  rent: { coliving: 1000, hostel: 1500, airbnb: 2000, hotel: 3000 },
+  food: { supermarket: 100, restaurant: 200 },
+  drink: { occasionally: 100, frequently: 200 },
+  tobacco: { non_user: 0, user: 50 },
+  utilities: { economical: 40, expensive: 65 },
+  recreation: { occasionally: 25, frequently: 60 },
+  transportation: { public_transportation: 30, rent_transportation: 50 }
+}
+
 puts "Creating users"
 
 Review.destroy_all
@@ -52,7 +63,7 @@ CITIES.each do |hash|
     name: hash[:city],
     coordinates: hash[:coordinates],
     temperature: rand(-5..30),
-    data: {}
+    data: data
     )
 end
 
