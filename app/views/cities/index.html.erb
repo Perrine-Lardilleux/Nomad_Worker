@@ -1,5 +1,6 @@
 <div id="map"
      style="width: 100%; height: 400px;"
+     data-markers="<%= @markers.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
 
@@ -20,7 +21,7 @@
 
   <div class="cards">
     <% @cities.each do |city| %>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path "digital-nomad.png" %>)">
         <div class="link">
           <%= link_to city.name, city_path(city) %>
         </div>

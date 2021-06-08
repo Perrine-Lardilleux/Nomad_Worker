@@ -1,19 +1,29 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
 require 'faker'
+
+CITIES = [
+  { city: 'São Paulo', coordinates: '"-23.5507 -46.6334"'},
+  { city: 'Rome', coordinates: '41.89306 12.48278'},
+  { city: 'Paris', coordinates: '48.85658 2.35183'},
+  { city: 'Lisbon', coordinates: '38.7263 -9.1484'},
+  { city: 'Berlin', coordinates: '52.51667 13.38333'},
+  { city: 'New York', coordinates: '40.7306 -73.9866'},
+  { city: 'Vancouver', coordinates: '49.2609 -123.1139'},
+  { city: 'Honolulu', coordinates: '21.3045 -157.8557'},
+  { city: 'Sydney', coordinates: '-33.868 151.21'},
+  { city: 'Auckland', coordinates: '-36.85 174.78333'},
+  { city: 'Chiang Mai', coordinates: '18.83722 98.97056'},
+  { city: 'Singapore', coordinates: '1.3516161224392 103.808052586332'},
+  { city: 'Beirut', coordinates: '33.88694 35.51306'},
+  { city: 'London', coordinates: '51.507321899999994 -0.12764739999999997'},
+  { city: 'Oslo', coordinates: '59.855058 10.814466'}
+]
 
 puts "Creating users"
 
-User.destroy_all
-Country.destroy_all
-City.destroy_all
 Review.destroy_all
+User.destroy_all
+City.destroy_all
+Country.destroy_all
 Wishlist.destroy_all
 
 
@@ -35,12 +45,12 @@ puts "Creating 15 countries"
   )
 end
 
-puts "Creating 30 cities"
-30.times do |i|
+puts "Creating 15 cities"
+CITIES.each do |hash|
   city = City.create!(
     country: Country.all.sample,
-    name: Faker::Address.unique.city,
-    coordinates: "lat #{Faker::Address.latitude} long #{Faker::Address.longitude} ",
+    name: hash[:city],
+    coordinates: hash[:coordinates],
     temperature: rand(-5..30),
     data: {}
     )

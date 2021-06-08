@@ -3,6 +3,14 @@ class CitiesController < ApplicationController
 
   def index
     @cities = policy_scope(City)
+
+    @markers = @cities.map do |city|
+      {
+        lat: city.coordinates.split[0].to_i,
+        lng: city.coordinates.split[1].to_i
+      }
+    end
+    # @markers = [{lat: -23.5507, lng: -46.6334 }]
   end
 
   def show
