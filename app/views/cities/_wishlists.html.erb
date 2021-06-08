@@ -4,5 +4,5 @@
 <% elsif user_signed_in? %>
   <%= button_to "Add to wishlist", city_wishlists_path(@city), class:"btn-success", remote: true %>
 <% else %>
-  <%= button_to "Login to wishlist cities and much more!", new_user_session_path, class:"btn-primary" %>
+  <%= button_to "Login to wishlist cities and much more!", new_user_session_path, class:"btn-flat btn-primary" %>
 <% end %>
