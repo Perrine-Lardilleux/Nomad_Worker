@@ -1,21 +1,21 @@
 require 'faker'
 
 CITIES = [
-  { city: 'Rio', coordinates: '-22.90684 -43.17289'},
-  { city: 'Honolulu', coordinates: '21.3045 -157.8557'},
-  { city: 'Bali', coordinates: '-8.34054 115.091945'},
-  { city: 'Rome', coordinates: '41.89306 12.48278'},
-  { city: 'Paris', coordinates: '48.85658 2.35183'},
-  { city: 'Lisbon', coordinates: '38.7263 -9.1484'},
-  { city: 'Berlin', coordinates: '52.51667 13.38333'},
-  { city: 'Vancouver', coordinates: '49.2609 -123.1139'},
-  { city: 'Sydney', coordinates: '-33.868 151.21'},
-  { city: 'Auckland', coordinates: '-36.85 174.78333'},
-  { city: 'Chiang Mai', coordinates: '18.83722 98.97056'},
-  { city: 'Singapore', coordinates: '1.3516161224392 103.808052586332'},
-  { city: 'Beirut', coordinates: '33.88694 35.51306'},
-  { city: 'London', coordinates: '51.507321899999994 -0.12764739999999997'},
-  { city: 'Oslo', coordinates: '59.855058 10.814466'}
+  { city: 'Rio', latitude: -22.90684, longitude: -43.17289 },
+  { city: 'Honolulu', latitude: 21.3045, longitude: -157.8557 },
+  { city: 'Bali', latitude: -8.34054, longitude: 115.091945 },
+  { city: 'Rome', latitude: 41.89306, longitude: 12.48278 },
+  { city: 'Paris', latitude: 48.85658, longitude: 2.35183 },
+  { city: 'Lisbon', latitude: 38.7263, longitude: -9.1484 },
+  { city: 'Berlin', latitude: 52.51667, longitude: 13.38333 },
+  { city: 'Vancouver', latitude: 49.2609, longitude: -123.1139 },
+  { city: 'Sydney', latitude: -33.868, longitude: 151.21 },
+  { city: 'Auckland', latitude: -36.85, longitude: 174.78333 },
+  { city: 'Chiang Mai', latitude: 18.83722, longitude: 98.97056 },
+  { city: 'Singapore', latitude: 1.3516161224392, longitude: 103.808052586332 },
+  { city: 'Beirut', latitude: 33.88694, longitude: 35.51306 },
+  { city: 'London', latitude: 51.507321899999994, longitude: -0.12764739999999997 },
+  { city: 'Oslo', latitude: 59.855058, longitude: 10.814466 }
 ]
 
 
@@ -61,7 +61,8 @@ CITIES.each do |hash|
   city = City.create!(
     country: Country.all.sample,
     name: hash[:city],
-    coordinates: hash[:coordinates],
+    latitude: hash[:latitude],
+    longitude: hash[:longitude],
     temperature: rand(-5..30),
     data: data
     )
