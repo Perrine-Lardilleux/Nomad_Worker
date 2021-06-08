@@ -1,7 +1,7 @@
 require 'faker'
 
 CITIES = [
-  { city: 'Rio', coordinates: '"-22.90684 -43.17289"'},
+  { city: 'Rio', coordinates: '-22.90684 -43.17289'},
   { city: 'Honolulu', coordinates: '21.3045 -157.8557'},
   { city: 'Bali', coordinates: '-8.34054 115.091945'},
   { city: 'Rome', coordinates: '41.89306 12.48278'},

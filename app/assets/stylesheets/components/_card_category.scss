@@ -1,4 +1,5 @@
 .card-category {
+  position: relative;
   background-size: cover;
   background-position: center;
   height: 250px;
@@ -16,4 +17,10 @@
 .link a {
   color: white;
   text-decoration: none;
+}
+
+.far {
+  position: absolute;
+  top: 15px;
+  right: 15px;
 }
