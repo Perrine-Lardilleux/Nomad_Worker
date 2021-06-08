@@ -1,9 +1,8 @@
-<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/random/?<%= city.name %>,landscape)">
+<div id="city-<%=city.id%>" class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/random/?<%= city.name %>,landscape)">
   <div class="link">
     <%= link_to city.name, city_path(city) %>
-
       <% if user_signed_in? && current_user.wishlists?(city) %>
-        <%= link_to city_wishlist_path(city, current_user), method: :delete, remote: true do %>
+        <%= button_to city_wishlist_path(city, current_user), method: :delete, remote: true, :params {path: root_path, anchor: "city-#{city.id}"} do %>
           <i class="fas fa-heart"></i>
         <% end %>
       <% elsif user_signed_in? %>
@@ -15,6 +14,5 @@
           <i class="far fa-heart"></i>
         <% end %>
       <% end %>
-
   </div>
 </div>
