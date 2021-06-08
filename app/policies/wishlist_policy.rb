@@ -9,6 +9,11 @@ class WishlistPolicy < ApplicationPolicy
     record.user == user
   end
 
+  def create_index?
+    record.user == user
+  end
+
+
   def destroy?
     record.size < 2
     record.first.user == user

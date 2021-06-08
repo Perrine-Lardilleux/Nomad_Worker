@@ -1,6 +1,6 @@
 <% if user_signed_in? && current_user.wishlists?(@city) %>
   <% #raise %>
-  <%= button_to "Remove from wishlist", city_wishlist_path(@city), method: :delete, class:"btn-danger", remote: true %>
+  <%= button_to "Remove from wishlist", wishlist_path(@city), method: :delete, class:"btn-danger", remote: true %>
 <% elsif user_signed_in? %>
   <%= button_to "Add to wishlist", city_wishlists_path(@city), class:"btn-success", remote: true %>
 <% else %>
