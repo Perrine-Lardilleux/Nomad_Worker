@@ -1,17 +1,28 @@
-<div class="container my-4">
-  <h1><%= @city.name %>, <%= @city.country.name %></h1>
-  <p><%= @city.coordinates %></p>
-  <p>Median yearly temperature: <%= @city.temperature %></p>
-  <p><%= @city.data %></p>
-  <div id="wishlists">
-    <%= render partial: "wishlists" %>
+<div class="card-category text-center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/random/?<%= @city.name %>,landscape)">
+  <div class="link">
+    <p><%=@city.name%>
+      <br><%=@city.country.name%>
+    </p>
   </div>
-  <p>---------------------------Reviews---------------------------</p>
-  <%= render @city.reviews || "Nobody has reviewed #{@city.name} yet, have you visited it? Leave a review for others!" %>
+</div>
 
-  <%= simple_form_for([ @city, @review ], remote: true) do |f| %>
-    <%= f.input :content, label: 'Leave a review', as: :text %>
-  <%= f.button :submit, class:"btn-success", value: 'Add review' %>
-<% end %>
-<%= link_to 'Back', root_path, class:"btn-primary" %>
+<div class="container my-4">
+  <div class="content mb-5">
+    <p><%= @city.coordinates %></p>
+    <p>Median yearly temperature: <%= @city.temperature %></p>
+    <p><%= @city.data %></p>
+    <div id="wishlists">
+      <%= render partial: "wishlists" %>
+    </div>
+  </div>
+  <div class="review border-top pt-4 pb-4">
+    <h4><em>Reviews</em></h4>
+    <%= render @city.reviews || "Nobody has reviewed #{@city.name} yet, have you visited it? Leave a review for others!" %>
+
+    <%= simple_form_for([ @city, @review ], remote: true) do |f| %>
+      <%= f.input :content, label: 'Leave a review', as: :text %>
+    <%= f.button :submit, class:"btn-success", value: 'Add review' %>
+    <% end %>
+  </div>
+  <%= link_to 'Back', root_path, class:"btn-flat btn-primary" %>
 </div>
