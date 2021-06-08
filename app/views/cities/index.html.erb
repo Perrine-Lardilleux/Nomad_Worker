@@ -21,7 +21,7 @@
 <div class="container my-4">
   <div class="cards">
     <% @cities.each do |city| %>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/random/?travel)">
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/random/?<%= city.name %>,landscape)">
         <div class="link">
           <%= link_to city.name, city_path(city) %>
         </div>

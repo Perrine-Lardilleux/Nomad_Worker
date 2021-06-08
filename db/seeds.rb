@@ -1,14 +1,14 @@
 require 'faker'
 
 CITIES = [
-  { city: 'São Paulo', coordinates: '"-23.5507 -46.6334"'},
+  { city: 'Rio', coordinates: '"-22.90684 -43.17289"'},
+  { city: 'Honolulu', coordinates: '21.3045 -157.8557'},
+  { city: 'Bali', coordinates: '-8.34054 115.091945'},
   { city: 'Rome', coordinates: '41.89306 12.48278'},
   { city: 'Paris', coordinates: '48.85658 2.35183'},
   { city: 'Lisbon', coordinates: '38.7263 -9.1484'},
   { city: 'Berlin', coordinates: '52.51667 13.38333'},
-  { city: 'New York', coordinates: '40.7306 -73.9866'},
   { city: 'Vancouver', coordinates: '49.2609 -123.1139'},
-  { city: 'Honolulu', coordinates: '21.3045 -157.8557'},
   { city: 'Sydney', coordinates: '-33.868 151.21'},
   { city: 'Auckland', coordinates: '-36.85 174.78333'},
   { city: 'Chiang Mai', coordinates: '18.83722 98.97056'},
