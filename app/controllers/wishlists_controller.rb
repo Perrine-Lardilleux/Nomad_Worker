@@ -9,7 +9,7 @@ class WishlistsController < ApplicationController
     @wishlist = Wishlist.where(user: current_user, city: @city).first_or_create
     authorize(@wishlist)
     if @wishlist.save
-      redirect_to @city
+      redirect_to request.referrer #prestar atenção Lucas
     else
       raise # Temp REMOVE LATER
     end
@@ -20,7 +20,7 @@ class WishlistsController < ApplicationController
     @wishlist = Wishlist.where(city_id: params[:city_id], user: current_user)
     authorize(@wishlist)
     @wishlist.destroy_all
-    redirect_to @city
+    redirect_to request.referrer #prestar atenção Lucas
   end
 
   private
