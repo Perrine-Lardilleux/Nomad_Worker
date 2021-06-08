@@ -1,0 +1,16 @@
+<div class="container my-5 pt-2">
+  <div class="card">
+    <div class="card-header">
+      <%= image_tag 'https://kitt.lewagon.com/placeholder/users/ssaunier', class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+      Account
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Username</h5>
+      <p class="card-text mb-3"><%= current_user.username %></p>
+      <h5 class="card-title">Email</h5>
+      <p class="card-text mb-3"><%= current_user.email %></p>
+      <%= link_to 'Edit Account', edit_user_registration_path, class: "btn btn-primary"  %>
+      <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: "btn btn-primary" %>
+    </div>
+  </div>
+</div>

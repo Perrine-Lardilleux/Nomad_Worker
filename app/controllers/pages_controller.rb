@@ -4,6 +4,9 @@ class PagesController < ApplicationController
   def home
   end
 
+  def my_profile
+  end
+
   def economical
     @city = City.find(params[:city_id])
     @data = @city.data

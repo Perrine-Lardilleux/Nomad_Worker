@@ -9,4 +9,5 @@ Rails.application.routes.draw do
     get '/expensive', to: 'pages#expensive', as: 'expensive'
   end
   resources :wishlists, only: :index
+  get 'my_profile', to: 'pages#my_profile', as: 'my_profile'
 end
