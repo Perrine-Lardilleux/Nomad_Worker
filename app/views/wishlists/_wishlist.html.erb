@@ -1,9 +1,9 @@
-<div class="card my-4" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title"><%= wishlist.city.name %></h5>
-    <h6 class="card-subtitle mb-2 text-muted"><%= wishlist.city.temperature %>°C</h6>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <%= button_to "Remove from wishlist", city_wishlist_path(wishlist.city, wishlist),
-     method: :delete, data: { confirm: 'Are you sure?' }, class: "btn-danger" %>
+<div class="container my-4">
+  <div class="cards">
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/random/?<%= wishlist.city.name %>,landscape)">
+        <div class="link">
+          <%= link_to wishlist.city.name, city_path(wishlist.city.id) %>
+        </div>
+      </div>
   </div>
 </div>
