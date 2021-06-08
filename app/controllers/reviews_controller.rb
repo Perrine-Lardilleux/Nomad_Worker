@@ -8,7 +8,7 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to city_path(@city, anchor: "review-#{@review.id}")
     else
-      render 'cities/show'
+      render template: 'cities/show'
     end
   end
 

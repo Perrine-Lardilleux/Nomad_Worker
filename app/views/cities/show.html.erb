@@ -12,16 +12,16 @@
     <p>Median yearly temperature: <%= @city.temperature %></p>
     <p><%= @city.data %></p>
     <div id="wishlists">
-      <%= render partial: "wishlists" %>
+      <%= render partial: "cities/wishlists" %>
     </div>
   </div>
   <div class="review border-top pt-4 pb-4">
     <h4><em>Reviews</em></h4>
     <%= render @city.reviews || "Nobody has reviewed #{@city.name} yet, have you visited it? Leave a review for others!" %>
-
-    <%= simple_form_for([ @city, @review ], remote: true) do |f| %>
-      <%= f.input :content, label: 'Leave a review', as: :text %>
-    <%= f.button :submit, class:"btn-success", value: 'Add review' %>
+    <% if user_signed_in? %>
+      <%= render partial: "cities/form" %>
+    <% else %>
+      <%= button_to "Login to wishlist cities and much more!", new_user_session_path, class:"btn-flat btn-primary" %>
     <% end %>
   </div>
   <%= link_to 'Back', root_path, class:"btn-flat btn-primary" %>
