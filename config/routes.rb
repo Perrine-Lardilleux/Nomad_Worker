@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   resources :cities, only: [:show, :index] do
     resources :reviews, only: [:create, :update, :destroy]
     resources :wishlists, only: [:create, :destroy]
+    get '/economical', to: 'pages#economical', as: 'economical'
+    get '/expensive', to: 'pages#expensive', as: 'expensive'
   end
   resources :wishlists, only: :index
+  get 'my_profile', to: 'pages#my_profile', as: 'my_profile'
 end

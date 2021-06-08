@@ -1,6 +1,7 @@
 class WishlistsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_city, only: [:create, :destroy]
+
   def index
     skip_policy_scope
   end
@@ -9,7 +10,7 @@ class WishlistsController < ApplicationController
     @wishlist = Wishlist.where(user: current_user, city: @city).first_or_create
     authorize(@wishlist)
     if @wishlist.save
-      redirect_to request.referrer #prestar atenção Lucas
+      redirect_to request.referrer # prestar atenção Lucas
     else
       raise # Temp REMOVE LATER
     end
@@ -20,7 +21,7 @@ class WishlistsController < ApplicationController
     @wishlist = Wishlist.where(city_id: params[:city_id], user: current_user)
     authorize(@wishlist)
     @wishlist.destroy_all
-    redirect_to request.referrer #prestar atenção Lucas
+    redirect_to request.referrer # prestar atenção Lucas
   end
 
   private
