@@ -1,0 +1,4 @@
+<%= simple_form_for([ @city, @review ], remote: true) do |f| %>
+  <%= f.input :content, label: 'Leave a review', as: :text %>
+<%= f.button :submit, class:"btn-success", value: 'Add review' %>
+<% end %>
