@@ -6,7 +6,7 @@ class ReviewsController < ApplicationController
     @review.user = current_user
     authorize(@review)
     if @review.save
-      redirect_to city_path(@city)
+      redirect_to city_path(@city, anchor: "review-#{@review.id}")
     else
       render 'cities/show'
     end
@@ -21,6 +21,7 @@ class ReviewsController < ApplicationController
     @review = Review.find(params[:id])
     authorize(@review)
     @review.destroy
+    redirect_to city_path(@review.city)
   end
 
   private

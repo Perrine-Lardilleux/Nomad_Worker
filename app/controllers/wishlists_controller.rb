@@ -1,22 +1,32 @@
 class WishlistsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :set_city, only: [:create, :destroy]
   def index
     skip_policy_scope
   end
 
   def create
-    @wishlist = Wishlist.new(user: current_user, city: params[:city_id])
+    @wishlist = Wishlist.where(user: current_user, city: @city).first_or_create
     authorize(@wishlist)
     if @wishlist.save
-      continue
+      redirect_to @city
     else
-      raise
+      raise # Temp REMOVE LATER
     end
   end
 
   def destroy
-    @wishlist = Wishlist.find(params[:id])
+    # raise
+    @wishlist = Wishlist.where(city_id: params[:city_id], user: current_user)
     authorize(@wishlist)
-    @wishlist.destroy
-    redirect_to wishlists_path
+    @wishlist.destroy_all
+    redirect_to @city
   end
+
+  private
+
+  def set_city
+    @city = City.find(params[:city_id])
+  end
+
 end
