@@ -1,6 +1,6 @@
 class WishlistsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_city, only: [:create, :destroy]
+  before_action :set_city, only: [:create, :create_index]
   def index
     skip_policy_scope
   end
@@ -9,15 +9,26 @@ class WishlistsController < ApplicationController
     @wishlist = Wishlist.where(user: current_user, city: @city).first_or_create
     authorize(@wishlist)
     if @wishlist.save
-      redirect_to params[:path], anchor: params[:anchor] #prestar atenção Lucas
+      redirect_to @city #prestar atenção Lucas
     else
       raise # Temp REMOVE LATER
     end
   end
 
+  def create_index
+    @wishlist = Wishlist.where(user: current_user, city: @city).first_or_create
+    authorize(@wishlist)
+    if @wishlist.save
+      redirect_to root_path(@city, anchor: "city-#{@city.id}") #prestar atenção Lucas
+    else
+      raise # Temp REMOVE LATER
+    end
+  end
+
+
   def destroy
     # raise
-    @wishlist = Wishlist.where(city_id: params[:city_id], user: current_user)
+    @wishlist = Wishlist.where(city_id: params[:id], user: current_user)
     authorize(@wishlist)
     @wishlist.destroy_all
     redirect_to request.referrer #prestar atenção Lucas

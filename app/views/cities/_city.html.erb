@@ -2,11 +2,11 @@
   <div class="link">
     <%= link_to city.name, city_path(city) %>
       <% if user_signed_in? && current_user.wishlists?(city) %>
-        <%= button_to city_wishlist_path(city, current_user), method: :delete, remote: true, :params {path: root_path, anchor: "city-#{city.id}"} do %>
+        <%= link_to wishlist_path(city), method: :delete, remote: true do %>
           <i class="fas fa-heart"></i>
         <% end %>
       <% elsif user_signed_in? %>
-        <%= link_to city_wishlists_path(city), method: :post, remote: true do %>
+        <%= link_to city_create_wishlist_path(city), method: :post, remote: true do %>
           <i class="far fa-heart"></i>
         <% end %>
       <% else %>
