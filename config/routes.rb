@@ -10,4 +10,7 @@ Rails.application.routes.draw do
   end
   resources :wishlists, only: [:index]
   get 'my_profile', to: 'pages#my_profile', as: 'my_profile'
+  resources :chatrooms, only: :show do
+    resources :messages, only: :create
+  end
 end
