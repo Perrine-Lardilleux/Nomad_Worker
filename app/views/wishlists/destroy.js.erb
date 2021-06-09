@@ -1,0 +1,2 @@
+$("#heart-<%= params[:city_id] %>").html("<%= escape_javascript(render('cities/heart')) %>");
+$("#wishlist-<%= params[:city_id] %>").html("<%= escape_javascript(render('cities/wishlists')) %>");
