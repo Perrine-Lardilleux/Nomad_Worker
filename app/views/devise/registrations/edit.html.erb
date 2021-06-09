@@ -13,6 +13,7 @@
 
       <%= f.input :username, required: false, autofocus: true %>
       <%= f.input :preferences, required: false, autofocus: true %>
+      <%= f.input :photo, as: :file, required: false, autofocus: true %>
       <%= f.input :current_password,
                   hint: "we need your current password to confirm your changes",
                   required: true,
