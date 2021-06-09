@@ -90,4 +90,6 @@ puts "Creating 10 wishlists"
     )
 end
 
+Chatroom.create(name: "general")
+
 puts 'Finished!'
