@@ -1,4 +1,4 @@
-<p id="review-<%= review.id %>"><%= review.content %>
+<p id="review-<%= review.id %>"> <div class="card-review pl-3 py-3"><%= review.content %></div>
 <% if review.user == current_user %>
 <%= link_to 'Delete', city_review_path(@city, review), method: :delete, data: { confirm: 'Are you sure?' },
  class:"btn-flat", remote: true %>
