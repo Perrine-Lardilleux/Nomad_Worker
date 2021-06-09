@@ -6,6 +6,9 @@ ruby '2.6.6'
 gem 'nokogiri', '~> 1.8'
 
 gem 'pundit'
+# Background Jobs
+gem 'sidekiq', '~> 6.2.1'
+gem 'sidekiq-failures', '~> 1.0'
 
 gem 'cloudinary', '~> 1.16.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

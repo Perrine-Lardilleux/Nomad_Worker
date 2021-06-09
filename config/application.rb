@@ -17,6 +17,8 @@ module NomadWorker
     config.load_defaults 6.0
     # Remote / AJAX / Forms
     config.action_view.embed_authenticity_token_in_remote_forms = true
+    # Background jobs stuff
+    config.active_job.queue_adapter = :sidekiq
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
