@@ -30,13 +30,19 @@
     </div>
   </div>
   <div class="review border-top pt-4 pb-4">
-    <h4><em>Reviews</em></h4>
-    <%= render @city.reviews || "Nobody has reviewed #{@city.name} yet, have you visited it? Leave a review for others!" %>
-    <% if user_signed_in? %>
-      <%= render partial: "cities/form" %>
-    <% else %>
-      <%= button_to "Login to wishlist cities and much more!", new_user_session_path, class:"btn-flat btn-primary" %>
-    <% end %>
+    <div class="row">
+      <div class="col-6">
+        <h4><em>Reviews</em></h4>
+        <%= render @city.reviews || "Nobody has reviewed #{@city.name} yet, have you visited it? Leave a review for others!" %>
+      </div>
+      <div class="col-6">
+        <% if user_signed_in? %>
+          <%= render partial: "cities/form" %>
+        <% else %>
+          <%= button_to "Login to wishlist cities and much more!", new_user_session_path, class:"btn-flat btn-primary" %>
+        <% end %>
+      </div>
+    </div>
   </div>
   <%= link_to 'Back', root_path, class:"btn-flat btn-primary" %>
 </div>
