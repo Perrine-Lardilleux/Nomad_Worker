@@ -1,6 +1,6 @@
 <p id="review-<%= review.id %>"><%= review.content %>
 <% if review.user == current_user %>
 <%= link_to 'Delete', city_review_path(@city, review), method: :delete, data: { confirm: 'Are you sure?' },
- class:"btn-danger", remote: true %>
+ class:"btn-flat", remote: true %>
 <% end %>
 </p>
