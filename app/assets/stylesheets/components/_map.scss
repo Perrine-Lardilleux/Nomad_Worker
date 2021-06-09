@@ -5,9 +5,18 @@
 .mapboxgl-popup-content {
   text-align: center;
   font-family: 'Open Sans', sans-serif;
+
+  a {
+    box-shadow: none !important;
+    border: transparent;
+    color: #4e16fb;
+  }
 }
 
 .mapboxgl-popup-close-button {
   margin-top: -3px;
   margin-right: 3px;
 }
+
+
+
