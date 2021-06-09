@@ -12,6 +12,20 @@
   opacity: 1;
 }
 
+.btn-round {
+  color: #2a9d8f;
+  border: 1px solid #2a9d8f;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+.btn-ghost:hover {
+  opacity: 1;
+  text-decoration: none;
+}
+
 .btn-flat {
   color: white;
   padding: 8px 24px;
