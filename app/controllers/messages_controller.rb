@@ -7,12 +7,12 @@ class MessagesController < ApplicationController
     authorize @message
     if @message.save
       respond_to do |format|
-        format.js {
+        format.js do
           ChatroomChannel.broadcast_to(
             @chatroom,
             render_to_string(partial: "message", locals: { message: @message })
           )
-        }
+        end
       end
     else
       render "chatrooms/show"

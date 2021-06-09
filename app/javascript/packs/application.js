@@ -25,6 +25,7 @@ require("channels")
 // External imports
 import "bootstrap";
 import { initMapbox } from '../plugins/init_mapbox';
+import { slide } from '../components/slide'
 import { initChatroomCable } from '../channels/chatroom_channel';
 
 // Internal imports, e.g:
@@ -33,6 +34,7 @@ window.jQuery = $;
 window.$ = $;
 
 document.addEventListener('turbolinks:load', () => {
+  slide();
   initMapbox();
   initChatroomCable();
 });

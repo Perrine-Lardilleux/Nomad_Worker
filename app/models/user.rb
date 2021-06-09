@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :reviews
   has_many :wishlists, dependent: :destroy
   has_one_attached :photo
+  after_create :send_welcome_email
 
   def wishlists?(city)
     city.wishlists.where(user_id: id).any?
@@ -13,5 +14,11 @@ class User < ApplicationRecord
 
   def profile_picture
     photo.attached? ? photo : 'digital-nomad.png'
+  end
+
+  private
+
+  def send_welcome_email
+    UserMailer.welcome(self).deliver_now
   end
 end
