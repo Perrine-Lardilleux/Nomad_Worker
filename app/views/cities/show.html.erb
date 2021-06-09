@@ -30,9 +30,11 @@
     </div>
   </div>
   <div class="review border-top pt-4 pb-4">
+    <div class="review text-center mb-5">
+      <h4><strong>Reviews</strong></h4>
+    </div>
     <div class="row">
       <div class="col-6">
-        <h4><em>Reviews</em></h4>
         <%= render @city.reviews || "Nobody has reviewed #{@city.name} yet, have you visited it? Leave a review for others!" %>
       </div>
       <div class="col-6">
