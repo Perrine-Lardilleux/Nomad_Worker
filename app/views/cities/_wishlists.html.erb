@@ -1,8 +1,8 @@
 <div id="wishlist-<%= @city.id %>">
 <% if user_signed_in? && current_user.wishlists?(@city) %>
-  <%= button_to "Remove from wishlist", city_wishlist_path(@city, current_user), method: :delete, class:"btn-danger", remote: true %>
+  <%= button_to "Remove from wishlist", city_wishlist_path(@city, current_user), method: :delete, class:"btn-flat", remote: true %>
 <% elsif user_signed_in? %>
-  <%= button_to "Add to wishlist", city_wishlists_path(@city), class:"btn-success", remote: true %>
+  <%= button_to "Add to wishlist", city_wishlists_path(@city), class:"btn-flat", remote: true %>
 <% else %>
   <%= button_to "Login to wishlist cities and much more!", new_user_session_path, class:"btn-flat btn-primary" %>
 <% end %>
