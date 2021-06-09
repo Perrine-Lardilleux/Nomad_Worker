@@ -1,10 +1,10 @@
 <div class="container my-4">
-  <h1>#<%= @chatroom.name %></h1>
-  <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
+  <h1><%= @chatroom.name.capitalize %></h1>
+  <div id="messages" data-chatroom-id="<%= @chatroom.id %>" class="p-4 my-3" style="background-color: #F4F4F4; border-radius: 25px;">
     <% @chatroom.messages.each do |message| %>
-      <div class="message-container" id="message-<%= message.id %>">
+      <div class="message-container border-bottom mt-3" id="message-<%= message.id %>" style="background-color:">
         <i class="author">
-          <span><%= message.user.username %></span>
+          <span class="mr-3" ><%= message.user.username %></span>
           <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
         </i>
         <p><%= message.content %></p>
