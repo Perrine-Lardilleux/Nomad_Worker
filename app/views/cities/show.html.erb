@@ -17,7 +17,7 @@
       <p><strong>💵 Currency: </strong> <%=  @city.country.currency %></p>
     </div>
     <div class="row justify-content-around mt-5">
-      <div class="card my-4 col-4 text-center" style="width: 18rem; background-color: #d4f4dd">
+      <div class="card my-4 col-4 text-center" style="width: 18rem; background-color: #edf6f9">
         <div class="card-body">
           <h5 class="card-title font-weight-bold border-bottom pb-2">Economical Package</h5>
           <p class="card-text">
@@ -27,7 +27,7 @@
           </p>
         </div>
       </div>
-      <div class="card my-4 col-4 text-center" style="width: 18rem; background-color: #d4f4dd">
+      <div class="card my-4 col-4 text-center" style="width: 18rem; background-color: #edf6f9">
         <div class="card-body">
           <h5 class="card-title font-weight-bold border-bottom pb-2">Expensive Package</h5>
           <p class="card-text">
@@ -39,9 +39,12 @@
       </div>
     </div>
   </div>
-  <div class="review border-top pt-5 pb-4">
-    <div class="review text-center text-uppercase mb-5">
-      <h4><strong>Reviews</strong></h4>
+  <div class="review border-top pt-5 pb-5" style="">
+    <div class="review  mb-5" style="color: #c57b57">
+      <div class="review-title font-weight-bold text-uppercase">
+        <h4><strong>...Reviews from Nomads</strong></h4>
+      </div>
+      <p>Find out opinion from nomads who already went to this city </p>
     </div>
     <div class="row">
       <div class="col-6">
@@ -56,5 +59,5 @@
       </div>
     </div>
   </div>
-  <%= link_to 'Back', root_path, class:"btn-flat btn-primary" %>
+  <%= link_to 'Back', root_path, class:"btn-flat" %>
 </div>
