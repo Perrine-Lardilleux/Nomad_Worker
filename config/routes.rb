@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   resources :chatrooms, only: :show do
     resources :messages, only: :create
   end
+
+  delete 'delete_wishlist', to: 'wishlists#destroy_wishlist', as: :destroy_wishlist
+  
   require 'sidekiq/web'
   authenticate :user, ->(user) { user.admin? } do
     mount Sidekiq::Web => '/sidekiq'
