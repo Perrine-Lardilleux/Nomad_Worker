@@ -1,0 +1,16 @@
+<% city ||= @city %>
+<div id="heart-<%= city.id %>">
+<% if user_signed_in? && current_user.wishlists?(city) %>
+  <%= link_to city_wishlist_path(city, current_user), method: :delete, remote: true do %>
+    <i class="fas fa-heart"></i>
+  <% end %>
+<% elsif user_signed_in? %>
+  <%= link_to city_wishlists_path(city), method: :post, remote: true do %>
+    <i class="far fa-heart"></i>
+  <% end %>
+<% else %>
+  <%= link_to new_user_session_path do %>
+    <i class="far fa-heart"></i>
+  <% end %>
+<% end %>
+</div>
