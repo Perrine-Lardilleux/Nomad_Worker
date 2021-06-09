@@ -19,5 +19,18 @@
 
 }
 
+.mapboxgl-popup-tip {
+  display: none;
+}
 
+.white-heart {
 
+  color: #f8f9fa;
+}
+
+.white-heart:hover {
+ 
+  color: #f8f9fa; 
+  // color: transparent;
+  opacity: 0.5;
+}

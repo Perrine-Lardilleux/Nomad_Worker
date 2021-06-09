@@ -2,6 +2,7 @@
   <div class="cards">
     <% current_user.wishlists.each do |wishlist| %>
       <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path wishlist.city.name, crop: :fill%>')">
+          <%= render partial: 'cities/heart_wishlist', locals: {city: wishlist.city} %>
         <div class="link">
           <%= link_to wishlist.city.name, city_path(wishlist.city.id) %>
         </div>
@@ -10,3 +11,12 @@
   </div>
 </div>
 
+
+<script> 
+  
+  const element = document.querySelector('.card-category');
+  element.addEventListener('click', ()=> {
+    element.classList.toggle('card-category-trans');   
+  })
+
+</script>
