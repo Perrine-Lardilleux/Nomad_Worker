@@ -1,6 +1,6 @@
-<div class="message-container" id="message-<%= message.id %>">
+<div class="message-container border-bottom mt-3" id="message-<%= message.id %>" >
   <i class="author">
-    <span><%= message.user.username %></span>
+    <span class="mr-3" ><%= message.user.username %></span>
     <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
   </i>
   <p><%= message.content %></p>
