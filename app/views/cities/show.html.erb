@@ -7,8 +7,10 @@
 
 <div class="container my-4">
   <div class="content mb-5">
-    <p>Latitude: <%= @city.latitude %> | Longitude: <%= @city.longitude %></p>
-    <p>Median yearly temperature: <%= @city.temperature %></p>
+    <p><strong>Latitude:</strong> <%= @city.latitude %> |<strong>Longitude:</strong><%= @city.longitude %></p>
+    <p><strong>Median yearly temperature:</strong> <%= @city.temperature %></p>
+    <p><strong>Language:</strong> <%= @city.country.language %></p>
+    <p><strong>Currency:</strong> <%= @city.country.currency %></p>
     <div id="wishlists">
       <%= render partial: "cities/wishlists" %>
     </div>
