@@ -5,6 +5,8 @@ ruby '2.6.6'
 
 gem 'nokogiri', '~> 1.8'
 
+gem "chartkick"
+
 gem 'pundit'
 # Background Jobs
 gem 'sidekiq', '~> 6.2.1'

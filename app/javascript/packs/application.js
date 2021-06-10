@@ -24,19 +24,18 @@ require("channels")
 
 // External imports
 import "bootstrap";
-import { initMapbox } from '../plugins/init_mapbox';
-import { slide } from '../components/slide'
+import "chartkick/chart.js"
 import { initChatroomCable } from '../channels/chatroom_channel';
-import { initUpdateNavbarOnScroll } from '../components/navbar'
+import { initMapbox } from '../plugins/init_mapbox';
+import { initDataSearch } from '../plugins/init_data_search';
+
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 window.jQuery = $;
 window.$ = $;
 
 document.addEventListener('turbolinks:load', () => {
-  slide();
   initMapbox();
   initChatroomCable();
-  initUpdateNavbarOnScroll();
+  initDataSearch();
 });
-
