@@ -4,6 +4,7 @@ class WishlistsController < ApplicationController
 
   def index
     skip_policy_scope
+    @cities = current_user.cities
   end
 
   def create
