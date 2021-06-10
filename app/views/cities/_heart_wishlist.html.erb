@@ -1,0 +1,13 @@
+<% city ||= @city %>
+<div id="heart-<%= city.id %>">
+<% if user_signed_in? && current_user.wishlists?(city) %>
+  <%= link_to destroy_wishlist_path({city_id: city}), method: :delete, class:"card-category" do %>
+    <i class="fas fa-heart"></i>
+  <% end %>
+<% else %>
+  <%= link_to new_user_session_path, class:"card-category" do %>
+    <i class="far fa-heart"></i>
+  <% end %>
+<% end %>
+</div>
+
