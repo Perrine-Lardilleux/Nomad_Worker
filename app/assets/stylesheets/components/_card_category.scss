@@ -21,8 +21,9 @@
   position: relative;
   height: 250px;
   a:hover{
-    text-decoration: none !important;  
+    text-decoration: none !important;
   }
+}
 
 .far {
   position: absolute;
@@ -32,6 +33,7 @@
   z-index: 10;
   color: white;
 }
+
 .fas {
   position: absolute;
   font-size: 24px;
