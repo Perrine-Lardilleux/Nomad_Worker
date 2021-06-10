@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :reviews
   has_many :wishlists, dependent: :destroy
+  has_many :cities, through: :wishlists
   has_one_attached :photo
   after_create :send_welcome_email
 

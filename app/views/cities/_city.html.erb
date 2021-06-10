@@ -1,6 +1,0 @@
-<div id="city-<%=city.id%>" class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path city.name, crop: :fill%>')">
-  <div class="link">
-    <%= link_to city.name, city_path(city) %>
-    <%= render partial: "cities/heart", locals: { city: city } %>
-  </div>
-</div>
