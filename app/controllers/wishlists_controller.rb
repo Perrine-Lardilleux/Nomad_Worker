@@ -4,7 +4,7 @@ class WishlistsController < ApplicationController
 
   def index
     skip_policy_scope
-    @cities = current_user.cities
+    @wishlists = User.includes(:wishlists).find(current_user.id)
   end
 
   def create
