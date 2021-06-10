@@ -18,6 +18,7 @@ const initMapbox = () => {
       center: [23.5505, 30.6333],
       zoom: 1
     });
+    map.scrollZoom.disable();
     const markers = JSON.parse(mapElement.dataset.markers);
     markers.forEach((marker) => {
       const popup = new mapboxgl.Popup().setHTML(marker.info_window);
