@@ -15,20 +15,29 @@
   background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3));
 }
 
-.link a {
-  color: white;
-  text-decoration: none;
+.card-container {
+  position: relative;
+  height: 250px;
+  a:hover{
+    text-decoration: none !important;  
+  }
 }
 
 .far {
   position: absolute;
+  font-size: 24px;
   top: 15px;
   right: 15px;
+  z-index: 10;
+  color: white;
 }
 .fas {
   position: absolute;
+  font-size: 24px;
   top: 15px;
   right: 15px;
+  z-index: 10;
+  color: white;
 }
 
 
