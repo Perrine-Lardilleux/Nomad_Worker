@@ -1,18 +1,18 @@
 const initUpdateNavbarOnScroll = () => {
   const trigger = document.querySelector('.navbar-trigger');
-  if (trigger) { 
+  if (trigger) {
 	  const navbar = document.querySelector('.navbar-lewagon');
 	  if (navbar) {
+      navbar.style.background = 'transparent';
 	    window.addEventListener('scroll', () => {
-	      if (window.scrollY >= window.innerHeight) {
-	        navbar.classList.add('navbar-lewagon-white');
+	      if (window.scrollY >= (window.innerHeight/2)) {
+	        navbar.style.background = '#17bebb';
 	      } else {
-	        navbar.classList.remove('navbar-lewagon-white');
+	        navbar.style.background = 'transparent';
 	      }
 	    });
 	  }
   }
 }
-
 
 export { initUpdateNavbarOnScroll };

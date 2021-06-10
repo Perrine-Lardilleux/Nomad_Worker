@@ -57,6 +57,23 @@
   color: white;
 }
 
+.btn-search {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #2a9d8f;
+  transition: background 0.3s ease;
+  border: 1px solid #2a9d8f;
+}
+button {
+  font-size: 5px;
+}
+// .btn-search:after {
+//   content: 'f002';
+//   font-family: FontAwesome;
+//   padding-left: 10px;
+// }
+
 .btn-gradient {
   color: white;
   padding: 8px 24px;

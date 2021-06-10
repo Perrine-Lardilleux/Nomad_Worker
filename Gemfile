@@ -2,8 +2,10 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.6'
-
+gem 'faker'
 gem 'nokogiri', '~> 1.8'
+
+gem "chartkick"
 
 gem 'pundit'
 # Background Jobs
@@ -45,7 +47,6 @@ gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'
 gem 'simple_form'
 group :development, :test do
-  gem 'faker'
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'dotenv-rails'

@@ -42,3 +42,4 @@ yarn-debug.log*
 .env*
 .# Ignore Lucas's IDE folder
 /.idea/*
+.env*
