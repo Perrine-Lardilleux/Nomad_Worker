@@ -1,0 +1,12 @@
+<div class="container my-4">
+  <div class="cards">
+    <% cities.each do |city| %>
+      <div id="city-<%=city.id%>" class="card-category" style="background-image: url('<%= cl_image_path city.name, crop: :fill%>')">
+        <div class="link">
+          <%= link_to city.name, city_path(city) %>
+          <%= render partial: "shared/heart", locals: { city: city } %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

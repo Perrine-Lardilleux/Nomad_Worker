@@ -1,22 +1,21 @@
-<div class="container my-4">
-  <div class="cards">
-    <% current_user.wishlists.each do |wishlist| %>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path wishlist.city.name, crop: :fill%>')">
-          <%= render partial: 'cities/heart_wishlist', locals: {city: wishlist.city} %>
-        <div class="link">
-          <%= link_to wishlist.city.name, city_path(wishlist.city.id) %>
-        </div>
-      </div>
-      <% end %>
-  </div>
-</div>
+<%= render partial: "shared/city", locals: { cities: current_user.cities } %>
 
 
-<script> 
-  
-  const element = document.querySelector('.card-category');
-  element.addEventListener('click', ()=> {
-    element.classList.toggle('card-category-trans');   
-  })
+<script>
+
+const element = document.querySelectorAll('.card-category');
+element.forEach((el) => {
+  el.addEventListener('click', ()=> {
+  el.classList.toggle('card-category-transp');
+})
+});
 
 </script>
+
+
+<!-- Clicar no card (acessar o show da city) e voltar não retorna o card ao normal.
+ O mesmo problema ocorre se selecionarmos o coração e dermos toggle no tataravô.
+ O heart é refeito pelo js mas o script não roda novamente, logo o elemento não recebe o eventlistener
+ O js dessa página precisa rodar quando a página é acessada, mesmo que via 'voltar', e
+ quando algum elemente é re-renderizado. Tentei usar o helper include_javascript_tag e o reload do turbolinks,
+ sem sucesso  -->

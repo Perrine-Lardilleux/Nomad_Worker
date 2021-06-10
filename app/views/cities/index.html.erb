@@ -13,8 +13,4 @@
   <% end %>
 </div>
 
-<div class="container my-4">
-  <div class="cards">
-    <%= render @cities %>
-  </div>
-</div>
+<%= render partial: "shared/city", locals: { cities: @cities } %>
