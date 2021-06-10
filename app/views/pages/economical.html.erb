@@ -12,9 +12,12 @@
     <% end %>
   </div>
 
+  <div id="chart-container" class="mt-5">
+    <canvas id="myChart" width="400" height="150">
+    </canvas>
+  </div>
+
   <div id="result" class="my-5">
     <h3>Prices:</h3>
   </div>
-
-  <div class="graph"> <%= column_chart [['food', 10], ['rent', 20], ['drink', 30], ['tobacco', 25], ['utilities', 15], ['recreation', 55], ['transportation', 45], ['TOTAL', 200]] %> </div>
 </div>
