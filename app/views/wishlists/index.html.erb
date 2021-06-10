@@ -1,3 +1,7 @@
+<% content_for :head do %>
+  <meta name="turbolinks-visit-control" content="reload">
+<% end %>
+
 <%= render partial: "shared/city", locals: { cities: current_user.cities } %>
 
 
@@ -9,7 +13,7 @@ element.forEach((el) => {
   el.classList.toggle('card-category-transp');
 })
 });
-
+  
 </script>
 
 
@@ -17,5 +21,6 @@ element.forEach((el) => {
  O mesmo problema ocorre se selecionarmos o coração e dermos toggle no tataravô.
  O heart é refeito pelo js mas o script não roda novamente, logo o elemento não recebe o eventlistener
  O js dessa página precisa rodar quando a página é acessada, mesmo que via 'voltar', e
- quando algum elemente é re-renderizado. Tentei usar o helper include_javascript_tag e o reload do turbolinks,
+ quando algum elemento é re-renderizado. Tentei usar o helper include_javascript_tag e o reload do turbolinks,
  sem sucesso  -->
+
