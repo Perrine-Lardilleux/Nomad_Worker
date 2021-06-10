@@ -12,6 +12,7 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3));
 }
 
 .link a {
@@ -32,18 +33,5 @@
 
 
 .card-category-transp {
-  position: relative;
-  background-size: cover;
-  background-position: center;
-  height: 250px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  font-size: 24px;
-  font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  opacity: 0.1;
+  opacity: 0.3;
 }

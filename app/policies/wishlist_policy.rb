@@ -17,10 +17,4 @@ class WishlistPolicy < ApplicationPolicy
     record.size < 2
     record.first.user == user
   end
-
-  def destroy_wishlist?
-    record.size < 2
-    record.first.user == user
-  end
-
 end

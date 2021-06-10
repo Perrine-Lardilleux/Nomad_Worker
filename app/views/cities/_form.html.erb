@@ -1,4 +1,4 @@
 <%= simple_form_for([ @city, @review ], remote: true) do |f| %>
-  <%= f.input :content, label: 'Leave a review', as: :text %>
-<%= f.button :submit, class:"btn-flat", value: 'Add review' %>
+  <%= f.input :content, label: 'Leave a review 🌟', as: :text, input_html: {class:"form-review"}, style:"border-radius: 40px;" %>
+  <%= f.button :submit, class:"btn-round", value: 'Add review' %>
 <% end %>

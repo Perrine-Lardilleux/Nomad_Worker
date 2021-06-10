@@ -1,6 +1,6 @@
 class WishlistsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_city, only: %i[create destroy destroy_wishlist]
+  before_action :set_city, only: %i[create destroy]
 
   def index
     skip_policy_scope
@@ -25,13 +25,6 @@ class WishlistsController < ApplicationController
       format.js
       format.html { redirect_to root }
     end
-  end
-
-  def destroy_wishlist
-    @wishlist = Wishlist.where(city: @city, user: current_user)
-    authorize(@wishlist)
-    @wishlist.destroy_all
-    redirect_to wishlists_path
   end
 
   private
