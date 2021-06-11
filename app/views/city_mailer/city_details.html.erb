@@ -1,4 +1,4 @@
-<p><%= @greeting %>, here's some important information about <%= @city.name %></p>
+<p><%= @greeting %> Here's some useful information about <%= @city.name %></p>
 
 <div class="container my-5">
   <div class="content mb-5">
@@ -11,9 +11,9 @@
     <div class="row justify-content-around mt-5">
       <div class="card my-4 col-4 text-center" style="width: 18rem; background-color: #edf6f9">
         <div class="card-body">
-          <h5 class="card-title font-weight-bold border-bottom pb-2">Economical Package</h5>
+          <h5 class="card-title font-weight-bold border-bottom pb-2">Lifestyle</h5>
           <p class="card-text">
-            Price: $500
+            Economical
             <br><br>
             <%= link_to "See more", city_economical_url(@city), class:"btn-round-sm",  target: :_blank %>
           </p>
@@ -21,9 +21,9 @@
       </div>
       <div class="card my-4 col-4 text-center" style="width: 18rem; background-color: #edf6f9">
         <div class="card-body">
-          <h5 class="card-title font-weight-bold border-bottom pb-2">Expensive Package</h5>
+          <h5 class="card-title font-weight-bold border-bottom pb-2">Lifestyle</h5>
           <p class="card-text">
-            Price: $1000
+            Expensive
             <br><br>
             <%= link_to "See more", city_expensive_url(@city), class:"btn-round-sm",  target: :_blank %>
           </p>
