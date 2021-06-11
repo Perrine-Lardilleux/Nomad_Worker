@@ -8,4 +8,8 @@ class CityPolicy < ApplicationPolicy
   def show?
     true
   end
+
+  def send_details?
+    true
+  end
 end
