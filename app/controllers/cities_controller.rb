@@ -2,7 +2,15 @@ class CitiesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @cities = policy_scope(City)
+    if params[:query].present?
+      sql_query = " \
+        cities.name @@ :query \
+        OR countries.name @@ :query \
+      "
+      @cities = policy_scope(City).joins(:country).where(sql_query, query: "%#{params[:query]}%")
+    else
+      @cities = policy_scope(City)
+    end
   end
 
   def show
