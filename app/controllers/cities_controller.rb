@@ -18,4 +18,10 @@ class CitiesController < ApplicationController
     @review = Review.new # So we can render the review form here
     authorize(@city)
   end
+
+  def send_details
+    @city = City.find(params[:city_id])
+    CityMailer.city_details(current_user, @city).deliver_now
+    authorize(@city)
+  end
 end

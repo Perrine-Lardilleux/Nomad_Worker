@@ -17,22 +17,18 @@
       <p><strong>💵 Currency: </strong> <%=  @city.country.currency %></p>
     </div>
     <div class="row justify-content-around mt-5">
-      <div class="card my-4 col-4 text-center" style="width: 18rem; background-color: #edf6f9">
+      <div class="card my-4 col-4 text-center" style="width: 18rem; background-color: #006d77; color: white;">
         <div class="card-body">
-          <h5 class="card-title font-weight-bold border-bottom pb-2">Economical Package</h5>
+          <h5 class="card-title font-weight-bold pb-2">Economical Lifestyle</h5>
           <p class="card-text">
-            Price: $500
-            <br><br>
             <%= link_to "See more", city_economical_path(@city), class:"btn-round-sm" %>
           </p>
         </div>
       </div>
-      <div class="card my-4 col-4 text-center" style="width: 18rem; background-color: #edf6f9">
+      <div class="card my-4 col-4 text-center" style="width: 18rem; background-color: #006d77; color: white;">
         <div class="card-body">
-          <h5 class="card-title font-weight-bold border-bottom pb-2">Expensive Package</h5>
+          <h5 class="card-title font-weight-bold pb-2">Expensive Lifestyle</h5>
           <p class="card-text">
-            Price: $1000
-            <br><br>
             <%= link_to "See more", city_expensive_path(@city), class:"btn-round-sm" %>
           </p>
         </div>
@@ -56,6 +52,7 @@
         <% else %>
           <%= button_to "Login to wishlist cities and much more!", new_user_session_path, class:"btn-flat" %>
         <% end %>
+        <%= button_to 'Send me this info!', city_send_city_email_path(@city), remote: true, class:"btn-flat mt-2" %>
       </div>
     </div>
   </div>
