@@ -1,14 +1,14 @@
 <div class="adjust" style="height:100px"></div>
 <div class="container mt-4 mb-5">
   <br>
-  <div class="question pb-3" style="text-align: center; font-size: 24px;">
+  <div class="question pb-3 bold" style="text-align: center; font-size: 24px; font-weight: bold; color: #c57b57;">
     Where is your next stop?
   </div>
   <%= simple_form_for :search, url: root_path, method: :get do |f| %>
     <div class="search-form-control form-group">
       <input class="form-control string required" type="text" name="search[query]" id="search_query" />
       <button name="button" type="submit" class="btn btn-search">
-        <i class="fas fa-search"></i>Search
+        <i class="fas fa-search" style="padding-top: 5px; padding-right: 6px; font-size: 20px;"></i>
       </button>
     </div>
   <% end %>

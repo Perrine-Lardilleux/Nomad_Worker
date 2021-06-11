@@ -58,12 +58,24 @@
 }
 
 .btn-search {
+  width: 65px;
+  height: 56px;
+  margin-bottom: 5px;
   color: white;
   padding: 8px 24px;
-  border-radius: 4px;
+  border-radius: 0 20px 20px 0;
   background: #2a9d8f;
   transition: background 0.3s ease;
-  border: 1px solid #2a9d8f;
+  border: transparent;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+.btn-search:hover {
+  background: #095256;
+  color: white;
+}
+
+.form-control {
+  border-radius: 20px;
 }
 button {
   font-size: 5px;
