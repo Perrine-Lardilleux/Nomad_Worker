@@ -28,11 +28,11 @@
 }
 
 .btn-round-sm {
-  color: #2a9d8f;
-  border: 1px solid #2a9d8f;
+  color: #d4f4dd;
+  border: 1px solid #d4f4dd;
   padding: 6px 15px;
   border-radius: 50px;
-  font-weight: lighter;
+  font-weight: bold;
   opacity: 0.6;
   transition: opacity 0.3s ease;
   font-size: 15px;
@@ -41,6 +41,7 @@
   opacity: 1;
   text-decoration: none;
   color: #095256;
+  border: 1px solid #095256
 }
 
 .btn-flat {
