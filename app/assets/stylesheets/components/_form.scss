@@ -2,3 +2,12 @@
   border-radius: 15px;
   border: 1px solid #d4f4dd;
 }
+.search-form-control {
+  margin-bottom: 0;
+}
+.search-form-control .btn{
+  position: absolute;
+  top:0;
+  right:0;
+  bottom: 0;
+}
