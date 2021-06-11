@@ -2,7 +2,15 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home]
 
   def home
-    @cities = City.all.take(4)
+    @cities = City.all
+
+    @markers = @cities.map do |city|
+      {
+        lat: city.latitude,
+        lng: city.longitude,
+        info_window: render_to_string(partial: "cities/info_window", locals: { city: city })
+      }
+    end
   end
 
   def my_profile
