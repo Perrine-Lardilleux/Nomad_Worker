@@ -14,5 +14,6 @@ class CitiesController < ApplicationController
   def send_details
     @city = City.find(params[:city_id])
     CityMailer.city_details(current_user, @city).deliver_now
+    authorize(@city)
   end
 end

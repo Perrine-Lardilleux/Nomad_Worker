@@ -10,6 +10,6 @@ class CityPolicy < ApplicationPolicy
   end
 
   def send_details?
-    !user.email.nil?
+    true
   end
 end
