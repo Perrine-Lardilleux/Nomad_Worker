@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :wishlists, only: [:create, :destroy]
     get '/economical', to: 'pages#economical', as: 'economical'
     get '/expensive', to: 'pages#expensive', as: 'expensive'
+    post 'send_city_email', to: 'cities#send_details'
   end
 
   resources :wishlists, only: [:index]
@@ -25,4 +26,5 @@ Rails.application.routes.draw do
   authenticate :user, ->(user) { user.admin? } do
     mount Sidekiq::Web => '/sidekiq'
   end
+
 end
