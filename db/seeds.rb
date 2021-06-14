@@ -18,22 +18,6 @@ CITIES = [
   { city: 'Oslo', latitude: 59.855058, longitude: 10.814466 }
 ]
 
-<<<<<<< HEAD
-=======
-
-data = {
-  rent: { coliving: 1000, hostel: 1500, airbnb: 2000, hotel: 3000 },
-  food: { supermarket: 300, restaurant: 800 },
-  drink: { never: 0, occasionally: 200, frequently: 800 },
-  tobacco: { non_smoker: 0, smoker: 300 },
-  utilities: { economical: 400, expensive: 650 },
-  recreation: { occasionally: 250, frequently: 600 },
-  transportation: { public_transportation: 200, rent_transportation: 600, uber: 400 },
-  reference_stuff: { coca_cola_033l: 4, heineken_03l: 6, marlboro_pack: 10, big_mac: 15, nespresso_capsule: 3,
-                     jw_red_1l: 80, pellegrino_075l: 20 }
-}
-
->>>>>>> master
 puts "Creating users"
 
 Review.destroy_all

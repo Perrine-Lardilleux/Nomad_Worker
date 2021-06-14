@@ -19,7 +19,5 @@ class PagesController < ApplicationController
   def estimator
     @cities = City.all
     @city = City.find(params[:city_id])
-    @data = @city.data
-    @test_data = City.last.data
   end
 end

@@ -2,16 +2,15 @@ import { Chart } from 'chart.js';
 
 const generateChart = () => {
     var ctx = document.getElementById('myChart').getContext('2d');
-    const data = JSON.parse(document.getElementById('data').dataset.data);
-
+    const city = JSON.parse(document.getElementById('data').dataset.city);
     var myChart = new Chart(ctx, {
       type: "bar",
       data: {
         labels: ["food", "rent", "drink", "tobacco", "utilities", "recreation", "transportation", "TOTAL"],
         datasets: [
           {
-            label: 'Price',
-            data: updatePrices(data),
+            label: city.name,
+            data: updatePrices(city.data),
             backgroundColor: 'rgba(255, 99, 132, 0.2)',
             borderColor: 'rgb(255, 99, 132)',
             borderWidth: 1
@@ -41,6 +40,7 @@ const removeData = (chart) => {
 }
 
 const addCityComparator = (chart, data) => {
+  if (chart.data.datasets.length > 1) { chart.data.datasets.pop() };
   chart.data.datasets.push(data);
   chart.update();
 }
@@ -65,10 +65,9 @@ const updatePrices = (data) => {
 const initDataSearch = () => {
 
   let selects = document.querySelectorAll('.selects');
-  const data = JSON.parse(document.getElementById('data').dataset.data);
+  const data = JSON.parse(document.getElementById('data').dataset.city).data;
   const result = document.querySelector('#result');
   let comparator = document.getElementById('comparator');
-  console.log(comparator.value);
   selects.forEach((select) => {
     for (let category in data) {
       for (let subcategory in data[category]) {
@@ -91,17 +90,25 @@ const initDataSearch = () => {
     });
   });
   let myChart = generateChart();
-  const test = JSON.parse(document.getElementById('test').dataset.test);
   comparator.addEventListener("change", (event) => {
-    console.log(comparator.value);
-    const x = {
-      label: 'Price',
-      data: updatePrices(test),
-      backgroundColor: 'rgba(255, 159, 64, 0.2)',
-      borderColor: 'rgb(255, 159, 64)',
-      borderWidth: 1
+    console.log(comparator.value)
+    if (comparator.value === "none") {
+      myChart.data.datasets.pop();
+      myChart.update();
+    } else {
+      fetch(`/cities/${comparator.value}.json`)
+      .then(response => response.json())
+      .then((data) => {
+        let newData = {
+          label: data.name,
+          data: updatePrices(data.data),
+          backgroundColor: 'rgba(255, 159, 64, 0.2)',
+          borderColor: 'rgb(255, 159, 64)',
+          borderWidth: 1
+        }
+        addCityComparator(myChart, newData);
+      });
     }
-    addCityComparator(myChart, x);
   });
 }
 

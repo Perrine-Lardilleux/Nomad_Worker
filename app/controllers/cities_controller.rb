@@ -19,7 +19,7 @@ class CitiesController < ApplicationController
     authorize(@city)
     respond_to do |format|
       format.html
-      format.json { render json: @city.data }
+      format.json { render json: @city }
     end
   end
 
