@@ -1,20 +1,25 @@
 .mapboxgl-popup {
-  max-width: 200px;
+  width: 200px;
 }
 
 .mapboxgl-popup-content {
+  width: 200px;
   text-align: center;
   font-family: 'Open Sans', sans-serif;
   padding: 15px 10px 15px;
-
+  text-decoration: none;
   a {
-    color: #4e16fb;
-    outline: none
+    color: #095256;
+    outline: none;
+    text-decoration: none;
   }
 }
 
+a:hover {
+  color: #17bebb;
+}
 .mapboxgl-popup-close-button {
-  margin-top: -3px;
+  margin-top: -2px;
   margin-right: 3px;
 
 }
@@ -29,7 +34,7 @@
 }
 
 .white-heart:hover {
- 
-  color: #f8f9fa; 
+
+  color: #f8f9fa;
   opacity: 0.5;
 }
