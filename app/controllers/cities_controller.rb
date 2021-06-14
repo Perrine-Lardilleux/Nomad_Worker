@@ -17,6 +17,10 @@ class CitiesController < ApplicationController
     @city = City.find(params[:id])
     @review = Review.new # So we can render the review form here
     authorize(@city)
+    respond_to do |format|
+      format.html
+      format.json { render json: @city.data }
+    end
   end
 
   def send_details
