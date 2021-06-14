@@ -1,12 +1,17 @@
- .chat-widget {
-  background-color: #555;
-  color: white;
-  padding: 16px 20px;
-  border: none;
-  cursor: pointer;
-  opacity: 0.8;
+ .chat-container {
+  width: 360px;
   position: fixed;
-  bottom: 23px;
-  right: 28px;
-  max-width: 280px;
+  bottom: 5px;
+  right: 5px;
+
 }
+
+ .chat-widget {
+  border-radius: 25%;
+}
+
+.chat-box {
+  // display: none;
+}
+
+

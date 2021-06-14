@@ -22,8 +22,8 @@
       <%= render 'shared/flashes' %>
       <div id="content-wrap">
         <%= yield %>
+        <%= render 'shared/chat' if user_signed_in? %>
       </div>
-      <%= render 'shared/chat' if user_signed_in? %>
       <%= render 'shared/footer', cached: true %>
     </div>
   </body>
