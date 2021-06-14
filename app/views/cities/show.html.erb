@@ -9,11 +9,13 @@
 </div>
 
 <div class="container my-5">
-  <div class="content mb-5">
+  <div class="content mb-5" id="menu">
     <%= render partial: "show_menu" %>
-    <%= render partial: "city_info", locals: { city: @city } %>
-    <%= render partial: "costs_card", locals: { city: @city } %>
-    <%= render partial: "reviews", locals: { city: @city } %>
+    <div class="accordion-group">
+      <%= render partial: "city_info", locals: { city: @city } %>
+      <%= render partial: "costs_card", locals: { city: @city } %>
+      <%= render partial: "reviews", locals: { city: @city } %>
     </div>
+  </div>
   <%= link_to 'Back', root_path, class:"btn-flat" %>
 </div>
