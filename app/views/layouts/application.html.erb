@@ -23,6 +23,7 @@
       <div id="content-wrap">
         <%= yield %>
       </div>
+      <%= render 'shared/chat' if user_signed_in? %>
       <%= render 'shared/footer', cached: true %>
     </div>
   </body>

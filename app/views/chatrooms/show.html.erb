@@ -2,7 +2,7 @@
 <div class="container my-4">
   <h1 style="text-align: center; font-size: 30px; font-weight: bold; color: #c57b57;">Nomad Chat</h1>
   <div id="messages" data-chatroom-id="<%= @chatroom.id %>" class="p-4 my-3" style="background-color: #F4F4F4; border-radius: 25px;">
-    <% @chatroom.messages.each do |message| %>
+    <% @chatroom.messages.includes(:user).each do |message| %>
       <%= render partial: "messages/message", locals: { message: message} %>
     <% end %>
   </div>

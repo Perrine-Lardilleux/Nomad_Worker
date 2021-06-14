@@ -1,0 +1,16 @@
+<div class="container-sm mr-0">
+  <div class="chat-widget" id="collapseChat">
+    <h1 style="text-align: center; font-size: 30px; font-weight: bold; color: #c57b57;">Nomad Chat</h1>
+    <div id="messages" data-chatroom-id="<%= 1 %>" class="p-4 my-3" style="background-color: #F4F4F4; border-radius: 25px;">
+      <% Chatroom.find(1).messages.includes(:user).each do |message| %>
+        <%= render partial: "messages/message", locals: { message: message } %>
+      <% end %>
+    </div>
+    <%= simple_form_for [ Chatroom.find(1), Message.new ], remote: true do |f| %>
+      <%= f.input :content, label: false, placeholder: "Message ##{Chatroom.find(1).name}" %>
+    <% end %>
+  </div>
+  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseChat" aria-expanded="false" aria-controls="collapseChat">
+      Chat
+  </button>
+</div>
