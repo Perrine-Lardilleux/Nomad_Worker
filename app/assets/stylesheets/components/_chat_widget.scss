@@ -10,23 +10,38 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   z-index: 9999;
 }
-
  .chat-widget {
   border-radius: 50px;
   background-color: #83c5be;
   border-color: #83c5be;
   width: 100%;
 }
-
 .chat-widget:hover {
   background-color: #006d77;
   border-color: #006d77;
 }
+// =======
+// .chat-box {
+//   height: 567px;
+//   width: 400px;
+//   transition: all 250ms ease;
+//   overflow: scroll;
+//   background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6));
+//   color: white;
+//   border-radius: 2%;
 
-.chat-content {
-  margin-top: 10px;
-  height: 50px;
-}
+//   .message_content {
+//     position: sticky;
+//     bottom: 0;
+//   }
+
+//   h1 {
+//     position: sticky;
+//     margin: 2px auto 1px 2px;
+//     top: 0;
+//   }
+// >>>>>>> master
+// }
 
 .author {
   color: #c57b57;
@@ -34,8 +49,10 @@
 
 .chat-content {
   margin-top: 10px;
+  height: 50px;
+  margin-top: 10px;
   height: 70px;
-  width: 360px;
+  width: 355px;
   position: sticky;
   bottom: 0;
 }
@@ -52,8 +69,6 @@
     background-color: #fad4c0;
     padding: 10px 30px;
     border-radius: 10px;
-  }
-  .chat-discussion {
-
+    width: 355px;
   }
 }
