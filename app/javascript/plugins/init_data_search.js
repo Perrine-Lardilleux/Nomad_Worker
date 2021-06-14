@@ -2,37 +2,22 @@ import { Chart } from 'chart.js';
 
 const generateChart = () => {
     var ctx = document.getElementById('myChart').getContext('2d');
+    const data = JSON.parse(document.getElementById('data').dataset.data);
 
     var myChart = new Chart(ctx, {
       type: "bar",
       data: {
-      labels: ["food", "rent", "drink", "tobacco", "utilities", "recreation", "transportation", "TOTAL"],
-      datasets: [{
-        label: 'Price',
-        data: updatePrices(),
-        backgroundColor: [
-          'rgba(255, 99, 132, 0.2)',
-          'rgba(255, 159, 64, 0.2)',
-          'rgba(255, 205, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(153, 102, 255, 0.2)',
-          'rgba(201, 203, 207, 0.2)',
-          'rgba(0, 0, 0, 0.4)'
-        ],
-        borderColor: [
-          'rgb(255, 99, 132)',
-          'rgb(255, 159, 64)',
-          'rgb(255, 205, 86)',
-          'rgb(75, 192, 192)',
-          'rgb(54, 162, 235)',
-          'rgb(153, 102, 255)',
-          'rgb(201, 203, 207)',
-          'rgba(0, 0, 0)'
-        ],
-        borderWidth: 1
-      }]
-    },
+        labels: ["food", "rent", "drink", "tobacco", "utilities", "recreation", "transportation", "TOTAL"],
+        datasets: [
+          {
+            label: 'Price',
+            data: updatePrices(data),
+            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+            borderColor: 'rgb(255, 99, 132)',
+            borderWidth: 1
+          }
+        ]
+      },
       options: {
         scales: {
           y: {
@@ -46,7 +31,7 @@ const generateChart = () => {
 
 
 const addData = (chart, data) => {
-  chart.data.datasets[0].data = updatePrices()
+  chart.data.datasets[0].data = data
   chart.update();
 }
 
@@ -55,11 +40,14 @@ const removeData = (chart) => {
   chart.update();
 }
 
+const addCityComparator = (chart, data) => {
+  chart.data.datasets.push(data);
+  chart.update();
+}
 
-const updatePrices = () => {
+const updatePrices = (data) => {
   let selects = document.querySelectorAll('.selects');
   let prices = [];
-  const data = JSON.parse(document.getElementById('data').dataset.data);
   selects.forEach((select) => {
     for (let category in data) {
       for (let subcategory in data[category]) {
@@ -79,6 +67,8 @@ const initDataSearch = () => {
   let selects = document.querySelectorAll('.selects');
   const data = JSON.parse(document.getElementById('data').dataset.data);
   const result = document.querySelector('#result');
+  let comparator = document.getElementById('comparator');
+  console.log(comparator.value);
   selects.forEach((select) => {
     for (let category in data) {
       for (let subcategory in data[category]) {
@@ -90,17 +80,29 @@ const initDataSearch = () => {
 
     select.addEventListener("change", (event) => {
 
-      let category = event.target.firstElementChild.label
-      let subcategory = event.currentTarget.value
+      let category = event.target.firstElementChild.label;
+      let subcategory = event.currentTarget.value;
       document.getElementById(category).innerText = `${category.toUpperCase()}: ${subcategory} | $${data[category][subcategory]}`;
 
       removeData(myChart);
-      let newPrices = updatePrices();
-      addData(myChart, newPrices)
+      let newPrices = updatePrices(data);
+      addData(myChart, newPrices);
 
     });
   });
   let myChart = generateChart();
+  const test = JSON.parse(document.getElementById('test').dataset.test);
+  comparator.addEventListener("change", (event) => {
+    console.log(comparator.value);
+    const x = {
+      label: 'Price',
+      data: updatePrices(test),
+      backgroundColor: 'rgba(255, 159, 64, 0.2)',
+      borderColor: 'rgb(255, 159, 64)',
+      borderWidth: 1
+    }
+    addCityComparator(myChart, x);
+  });
 }
 
 export { initDataSearch };

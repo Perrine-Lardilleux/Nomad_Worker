@@ -9,8 +9,7 @@ Rails.application.routes.draw do
   resources :cities, only: [:show, :index] do
     resources :reviews, only: [:create, :update, :destroy]
     resources :wishlists, only: [:create, :destroy]
-    get '/economical', to: 'pages#economical', as: 'economical'
-    get '/expensive', to: 'pages#expensive', as: 'expensive'
+    get '/cost-of-living-estimator', to: 'pages#estimator', as: 'estimator'
     post 'send_city_email', to: 'cities#send_details'
   end
 
@@ -21,7 +20,7 @@ Rails.application.routes.draw do
   resources :chatrooms, only: :show do
     resources :messages, only: :create
   end
-  
+
   require 'sidekiq/web'
   authenticate :user, ->(user) { user.admin? } do
     mount Sidekiq::Web => '/sidekiq'

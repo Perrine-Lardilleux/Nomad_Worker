@@ -18,24 +18,15 @@ CITIES = [
   { city: 'Oslo', latitude: 59.855058, longitude: 10.814466 }
 ]
 
-
-data = {
-  rent: { coliving: 1000, hostel: 1500, airbnb: 2000, hotel: 3000 },
-  food: { supermarket: 100, restaurant: 200 },
-  drink: { occasionally: 100, frequently: 200 },
-  tobacco: { non_user: 0, user: 50 },
-  utilities: { economical: 40, expensive: 65 },
-  recreation: { occasionally: 25, frequently: 60 },
-  transportation: { public_transportation: 30, rent_transportation: 50 }
-}
-
 puts "Creating users"
 
 Review.destroy_all
+Message.destroy_all
 User.destroy_all
 City.destroy_all
 Country.destroy_all
 Wishlist.destroy_all
+Chatroom.destroy_all
 
 
 puts 'Creating 20 users'
@@ -58,6 +49,16 @@ end
 
 puts "Creating 15 cities"
 CITIES.each do |hash|
+  data = {
+    rent: { coliving: 1000*rand(1.1..3.0), hostel: 1500*rand(1.1..3.0), airbnb: 2000*rand(1.1..3.0), hotel: 3000*rand(1.1..3.0) },
+    food: { supermarket: 100*rand(1.1..3.0), restaurant: 200*rand(1.1..3.0) },
+    drink: { occasionally: 100*rand(1.1..3.0), frequently: 200*rand(1.1..3.0) },
+    tobacco: { non_user: 0*rand(1.1..3.0), user: 50*rand(1.1..3.0) },
+    utilities: { economical: 40*rand(1.1..3.0), expensive: 65*rand(1.1..3.0) },
+    recreation: { occasionally: 25*rand(1.1..3.0), frequently: 60*rand(1.1..3.0) },
+    transportation: { public_transportation: 30*rand(1.1..3.0), rent_transportation: 50*rand(1.1..3.0) }
+  }
+
   city = City.create!(
     country: Country.all.sample,
     name: hash[:city],

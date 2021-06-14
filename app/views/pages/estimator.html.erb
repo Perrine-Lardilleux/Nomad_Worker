@@ -1,7 +1,7 @@
-
 <div class="adjust" style="height:100px"></div>
 <h1 style="text-align: center; font-size: 30px; font-weight: bold; color: #c57b57;">Cost of Living Estimator</h1>
 <div class="container my-4">
+  <div id="test" data-test="<%= @test_data.to_json %>" class="row justify-content-around"></div>
   <div id="data" data-data="<%= @data.to_json %>" class="row justify-content-around">
     <% @data.each do |category, values| %>
     <div class="col-1">
@@ -15,13 +15,22 @@
       </select>
       </div>
     <% end %>
+    <div style="position: absolute; top: 800px">
+      <select id="comparator">
+        <label>Compare with:</label>
+        <optgroup label="Compare with: ">
+          <% @cities.each do |city| %>
+            <option value="<%= city.name %>"><%= city.name %></option>
+          <% end %>
+        </optgroup>
+      </select>
+    </div>
   </div>
 
   <div id="chart-container" class="mt-5">
     <canvas id="myChart" width="400" height="150">
     </canvas>
   </div>
-
   <div id="result" class="my-5">
     <h3>Prices:</h3>
   </div>
