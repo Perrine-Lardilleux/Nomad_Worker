@@ -61,9 +61,27 @@ const updatePrices = (data) => {
   return prices;
 }
 
+const compare = (myChart, comparator) => {
+  if (comparator.value === "none") {
+    myChart.data.datasets.pop();
+    myChart.update();
+  } else {
+    fetch(`/cities/${comparator.value}.json`)
+      .then(response => response.json())
+      .then((data) => {
+        let newData = {
+          label: data.name,
+          data: updatePrices(data.data),
+          backgroundColor: 'rgba(255, 159, 64, 0.2)',
+          borderColor: 'rgb(255, 159, 64)',
+          borderWidth: 1
+        }
+        addCityComparator(myChart, newData);
+      })
+  }
+}
 
 const initDataSearch = () => {
-
   let selects = document.querySelectorAll('.selects');
   const data = JSON.parse(document.getElementById('data').dataset.city).data;
   const result = document.querySelector('#result');
@@ -76,7 +94,6 @@ const initDataSearch = () => {
         }
       }
     }
-
     select.addEventListener("change", (event) => {
 
       let category = event.target.firstElementChild.label;
@@ -86,29 +103,13 @@ const initDataSearch = () => {
       removeData(myChart);
       let newPrices = updatePrices(data);
       addData(myChart, newPrices);
+      if (myChart.data.datasets.length > 1) { compare(myChart, comparator) };
 
     });
   });
   let myChart = generateChart();
   comparator.addEventListener("change", (event) => {
-    console.log(comparator.value)
-    if (comparator.value === "none") {
-      myChart.data.datasets.pop();
-      myChart.update();
-    } else {
-      fetch(`/cities/${comparator.value}.json`)
-      .then(response => response.json())
-      .then((data) => {
-        let newData = {
-          label: data.name,
-          data: updatePrices(data.data),
-          backgroundColor: 'rgba(255, 159, 64, 0.2)',
-          borderColor: 'rgb(255, 159, 64)',
-          borderWidth: 1
-        }
-        addCityComparator(myChart, newData);
-      });
-    }
+    compare(myChart, comparator);
   });
 }
 
