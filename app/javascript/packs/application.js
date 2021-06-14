@@ -30,7 +30,6 @@ import { initMapbox } from '../plugins/init_mapbox';
 import { initDataSearch } from '../plugins/init_data_search';
 import { slide } from '../components/slide';
 import { initUpdateNavbarOnScroll } from '../components/navbar';
-import { doughnutChart } from '../plugins/doughnut_chart';
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -43,5 +42,4 @@ document.addEventListener('turbolinks:load', () => {
   if (document.getElementById('data')) { initDataSearch() };
   slide();
   initUpdateNavbarOnScroll();
-  // doughnutChart();
 });

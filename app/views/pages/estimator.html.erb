@@ -16,7 +16,6 @@
     <% end %>
     <div style="position: absolute; top: 800px">
       <select id="comparator">
-        <label>Compare with:</label>
         <optgroup label="Compare with: ">
           <option value="none">none</option>
           <% @cities.each do |city| %>
@@ -34,11 +33,7 @@
   <div class="common-search">
     <a href="" class="btn btn-primary" id="economical-search">Economical Search</a>
   </div>
-  <div id="result" class="my-5">
-    <h3>Prices:</h3>
-  </div>
-  <div id="doughnut-container" class="mt-5">
-    <canvas id="myDoughnutChart" width="400" height="150">
-    </canvas>
+  <div class="common-search">
+    <a href="" class="btn btn-primary" id="pizza-chart">Pizza Chart</a>
   </div>
 </div>

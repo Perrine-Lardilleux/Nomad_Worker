@@ -1,4 +1,5 @@
 import { Chart } from 'chart.js';
+import { pizzaChart } from '../plugins/pizza_chart';
 
 const generateChart = () => {
     var ctx = document.getElementById('myChart').getContext('2d');
@@ -61,7 +62,35 @@ const updatePrices = (data) => {
   return prices;
 }
 
-const compare = (myChart, comparator) => {
+const resetSelected = () => {
+  // document.getElementById("selectboxID").selectedIndex = -1; option.selected = ''
+  let selects = document.querySelectorAll('.selects');
+  selects.forEach((select) => {
+    // console.log(select.getElementsByTagName('option').selectedIndex); //.forEach((option) => { option.selectedIndex = -1 })
+    select.getElementsByTagName('option').forEach((option) => { option.selectedIndex = -1 })
+  });
+}
+
+const economicalSearch = () => {
+  const button = document.getElementById('economical-search');
+  button.addEventListener("click", (event) => {
+    resetSelected();
+    let selects = document.querySelectorAll('.selects');
+    selects.forEach((select) => {
+      // console.log(select)
+      select.getElementsByTagName('option')[select.getElementsByTagName('option').length - 1].selected = 'selected'
+    });
+  });
+}
+
+const activatePizza = () => {
+  const button = document.getElementById('pizza-chart');
+  button.addEventListener('click', (event) => {
+    pizzaChart();
+  });
+}
+
+const compareCities = (myChart, comparator) => {
   if (comparator.value === "none") {
     myChart.data.datasets.pop();
     myChart.update();
@@ -87,30 +116,19 @@ const initDataSearch = () => {
   const result = document.querySelector('#result');
   let comparator = document.getElementById('comparator');
   selects.forEach((select) => {
-    for (let category in data) {
-      for (let subcategory in data[category]) {
-        if (select.value === subcategory && category === select.firstElementChild.label) {
-          result.insertAdjacentHTML('beforeend', `<p id="${category}"> ${category.toUpperCase()}: ${subcategory} | $${data[category][subcategory]}</p>`);
-        }
-      }
-    }
     select.addEventListener("change", (event) => {
-
-      let category = event.target.firstElementChild.label;
-      let subcategory = event.currentTarget.value;
-      document.getElementById(category).innerText = `${category.toUpperCase()}: ${subcategory} | $${data[category][subcategory]}`;
-
       removeData(myChart);
       let newPrices = updatePrices(data);
       addData(myChart, newPrices);
-      if (myChart.data.datasets.length > 1) { compare(myChart, comparator) };
+      if (myChart.data.datasets.length > 1) { compareCities(myChart, comparator) };
 
     });
   });
   let myChart = generateChart();
   comparator.addEventListener("change", (event) => {
-    compare(myChart, comparator);
+    compareCities(myChart, comparator);
   });
+  // economicalSearch();
 }
 
 export { initDataSearch };
