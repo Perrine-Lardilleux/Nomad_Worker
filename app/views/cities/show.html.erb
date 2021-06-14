@@ -9,43 +9,12 @@
 </div>
 
 <div class="container my-5">
-  <div class="content mb-5">
-    <div class="card pl-3 pt-3">
-      <h5 class="card-title font-weight-bold border-bottom pb-2">Global informations:</h5>
-      <p><strong>☀️ Median yearly temperature: </strong> <%=  @city.temperature %></p>
-      <p><strong>📢 Language: </strong> <%=  @city.country.language %></p>
-      <p><strong>💵 Currency: </strong> <%=  @city.country.currency %></p>
-    </div>
-    <div class="row justify-content-around mt-5">
-      <div class="card my-4 col-4 text-center" style="width: 18rem; background-color: #006d77; color: white;">
-        <div class="card-body">
-          <h5 class="card-title font-weight-bold pb-2">Cost of Living Estimator</h5>
-          <p class="card-text">
-            <%= link_to "See more", city_estimator_path(@city), class:"btn-round-sm" %>
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="review border-top pt-5 pb-5" style="">
-    <div class="review  mb-5" style="color: #c57b57">
-      <div class="review-title font-weight-bold text-uppercase">
-        <h4><strong>...Reviews from Nomads</strong></h4>
-      </div>
-      <p>Find out opinion from nomads who already went to this city </p>
-    </div>
-    <div class="row">
-      <div class="col-6">
-        <%= render @city.reviews.includes([:user]) || "Nobody has reviewed #{@city.name} yet, have you visited it? Leave a review for others!" %>
-      </div>
-      <div class="col-6">
-        <% if user_signed_in? %>
-          <%= render partial: "cities/form" %>
-        <% else %>
-          <%= button_to "Login to wishlist cities and much more!", new_user_session_path, class:"btn-flat" %>
-        <% end %>
-        <%= button_to 'Send me this info!', city_send_city_email_path(@city), remote: true, class:"btn-flat mt-2" %>
-      </div>
+  <div class="content mb-5" id="menu">
+    <%= render partial: "show_menu" %>
+    <div class="accordion-group">
+      <%= render partial: "city_info", locals: { city: @city } %>
+      <%= render partial: "costs_card", locals: { city: @city } %>
+      <%= render partial: "reviews", locals: { city: @city } %>
     </div>
   </div>
   <%= link_to 'Back', root_path, class:"btn-flat" %>
