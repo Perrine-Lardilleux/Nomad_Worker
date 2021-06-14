@@ -18,26 +18,15 @@ CITIES = [
   { city: 'Oslo', latitude: 59.855058, longitude: 10.814466 }
 ]
 
-
-data = {
-  rent: { coliving: 1000, hostel: 1500, airbnb: 2000, hotel: 3000 },
-  food: { supermarket: 300, restaurant: 800 },
-  drink: { never: 0, occasionally: 200, frequently: 800 },
-  tobacco: { non_smoker: 0, smoker: 300 },
-  utilities: { economical: 400, expensive: 650 },
-  recreation: { occasionally: 250, frequently: 600 },
-  transportation: { public_transportation: 200, rent_transportation: 600, uber: 400 },
-  reference_stuff: { coca_cola_033l: 4, heineken_03l: 6, marlboro_pack: 10, big_mac: 15, nespresso_capsule: 3,
-                     jw_red_1l: 80, pellegrino_075l: 20 }
-}
-
 puts "Creating users"
 
 Review.destroy_all
+Message.destroy_all
 User.destroy_all
 City.destroy_all
 Country.destroy_all
 Wishlist.destroy_all
+Chatroom.destroy_all
 
 
 puts 'Creating 20 users'
@@ -60,6 +49,16 @@ end
 
 puts "Creating 15 cities"
 CITIES.each do |hash|
+  data = {
+    rent: { coliving: 1000*rand(1.1..3.0), hostel: 1500*rand(1.1..3.0), airbnb: 2000*rand(1.1..3.0), hotel: 3000*rand(1.1..3.0) },
+    food: { supermarket: 100*rand(1.1..3.0), restaurant: 200*rand(1.1..3.0) },
+    drink: { occasionally: 100*rand(1.1..3.0), frequently: 200*rand(1.1..3.0) },
+    tobacco: { non_user: 0*rand(1.1..3.0), user: 50*rand(1.1..3.0) },
+    utilities: { economical: 40*rand(1.1..3.0), expensive: 65*rand(1.1..3.0) },
+    recreation: { occasionally: 25*rand(1.1..3.0), frequently: 60*rand(1.1..3.0) },
+    transportation: { public_transportation: 30*rand(1.1..3.0), rent_transportation: 50*rand(1.1..3.0) }
+  }
+
   city = City.create!(
     country: Country.all.sample,
     name: hash[:city],

@@ -1,38 +1,23 @@
 import { Chart } from 'chart.js';
+import { pizzaChart } from '../plugins/pizza_chart';
 
 const generateChart = () => {
     var ctx = document.getElementById('myChart').getContext('2d');
-
+    const city = JSON.parse(document.getElementById('data').dataset.city);
     var myChart = new Chart(ctx, {
       type: "bar",
       data: {
-      labels: ["food", "rent", "drink", "tobacco", "utilities", "recreation", "transportation", "TOTAL"],
-      datasets: [{
-        label: 'Price',
-        data: updatePrices(),
-        backgroundColor: [
-          'rgba(255, 99, 132, 0.2)',
-          'rgba(255, 159, 64, 0.2)',
-          'rgba(255, 205, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(153, 102, 255, 0.2)',
-          'rgba(201, 203, 207, 0.2)',
-          'rgba(0, 0, 0, 0.4)'
-        ],
-        borderColor: [
-          'rgb(255, 99, 132)',
-          'rgb(255, 159, 64)',
-          'rgb(255, 205, 86)',
-          'rgb(75, 192, 192)',
-          'rgb(54, 162, 235)',
-          'rgb(153, 102, 255)',
-          'rgb(201, 203, 207)',
-          'rgba(0, 0, 0)'
-        ],
-        borderWidth: 1
-      }]
-    },
+        labels: ["food", "rent", "drink", "tobacco", "utilities", "recreation", "transportation", "TOTAL"],
+        datasets: [
+          {
+            label: city.name,
+            data: updatePrices(city.data),
+            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+            borderColor: 'rgb(255, 99, 132)',
+            borderWidth: 1
+          }
+        ]
+      },
       options: {
         scales: {
           y: {
@@ -46,7 +31,7 @@ const generateChart = () => {
 
 
 const addData = (chart, data) => {
-  chart.data.datasets[0].data = updatePrices()
+  chart.data.datasets[0].data = data
   chart.update();
 }
 
@@ -55,11 +40,15 @@ const removeData = (chart) => {
   chart.update();
 }
 
+const addCityComparator = (chart, data) => {
+  if (chart.data.datasets.length > 1) { chart.data.datasets.pop() };
+  chart.data.datasets.push(data);
+  chart.update();
+}
 
-const updatePrices = () => {
+const updatePrices = (data) => {
   let selects = document.querySelectorAll('.selects');
   let prices = [];
-  const data = JSON.parse(document.getElementById('data').dataset.data);
   selects.forEach((select) => {
     for (let category in data) {
       for (let subcategory in data[category]) {
@@ -73,34 +62,73 @@ const updatePrices = () => {
   return prices;
 }
 
+const resetSelected = () => {
+  // document.getElementById("selectboxID").selectedIndex = -1; option.selected = ''
+  let selects = document.querySelectorAll('.selects');
+  selects.forEach((select) => {
+    // console.log(select.getElementsByTagName('option').selectedIndex); //.forEach((option) => { option.selectedIndex = -1 })
+    select.getElementsByTagName('option').forEach((option) => { option.selectedIndex = -1 })
+  });
+}
+
+const economicalSearch = () => {
+  const button = document.getElementById('economical-search');
+  button.addEventListener("click", (event) => {
+    resetSelected();
+    let selects = document.querySelectorAll('.selects');
+    selects.forEach((select) => {
+      // console.log(select)
+      select.getElementsByTagName('option')[select.getElementsByTagName('option').length - 1].selected = 'selected'
+    });
+  });
+}
+
+const activatePizza = () => {
+  const button = document.getElementById('pizza-chart');
+  button.addEventListener('click', (event) => {
+    pizzaChart();
+  });
+}
+
+const compareCities = (myChart, comparator) => {
+  if (comparator.value === "none") {
+    myChart.data.datasets.pop();
+    myChart.update();
+  } else {
+    fetch(`/cities/${comparator.value}.json`)
+      .then(response => response.json())
+      .then((data) => {
+        let newData = {
+          label: data.name,
+          data: updatePrices(data.data),
+          backgroundColor: 'rgba(255, 159, 64, 0.2)',
+          borderColor: 'rgb(255, 159, 64)',
+          borderWidth: 1
+        }
+        addCityComparator(myChart, newData);
+      })
+  }
+}
 
 const initDataSearch = () => {
-
   let selects = document.querySelectorAll('.selects');
-  const data = JSON.parse(document.getElementById('data').dataset.data);
+  const data = JSON.parse(document.getElementById('data').dataset.city).data;
   const result = document.querySelector('#result');
+  let comparator = document.getElementById('comparator');
   selects.forEach((select) => {
-    for (let category in data) {
-      for (let subcategory in data[category]) {
-        if (select.value === subcategory && category === select.firstElementChild.label) {
-          result.insertAdjacentHTML('beforeend', `<p id="${category}"> ${category.toUpperCase()}: ${subcategory} | $${data[category][subcategory]}</p>`);
-        }
-      }
-    }
-
     select.addEventListener("change", (event) => {
-
-      let category = event.target.firstElementChild.label
-      let subcategory = event.currentTarget.value
-      document.getElementById(category).innerText = `${category.toUpperCase()}: ${subcategory} | $${data[category][subcategory]}`;
-
       removeData(myChart);
-      let newPrices = updatePrices();
-      addData(myChart, newPrices)
+      let newPrices = updatePrices(data);
+      addData(myChart, newPrices);
+      if (myChart.data.datasets.length > 1) { compareCities(myChart, comparator) };
 
     });
   });
   let myChart = generateChart();
+  comparator.addEventListener("change", (event) => {
+    compareCities(myChart, comparator);
+  });
+  // economicalSearch();
 }
 
 export { initDataSearch };

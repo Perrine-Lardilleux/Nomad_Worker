@@ -16,13 +16,8 @@ class PagesController < ApplicationController
   def my_profile
   end
 
-  def economical
+  def estimator
+    @cities = City.all
     @city = City.find(params[:city_id])
-    @data = @city.data
-  end
-
-  def expensive
-    @city = City.find(params[:city_id])
-    @data = @city.data
   end
 end
