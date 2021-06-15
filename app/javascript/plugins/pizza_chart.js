@@ -3,8 +3,6 @@ import { Chart } from 'chart.js';
 const generateChart = () => {
     var ctx = document.getElementById('myChart').getContext('2d');
 
-    ctx.width = 500;
-    ctx.height = 500;
     var myChart = new Chart(ctx, {
       type: "pie",
       data: {

@@ -95,7 +95,7 @@ const chartToggle = (myChart) => {
     event.currentTarget.classList.toggle('pizza');
     if (event.currentTarget.classList[event.currentTarget.classList.length - 1] === 'pizza') {
       myChart.destroy();
-      pizzaChart();
+      myChart = pizzaChart();
       event.currentTarget.innerText = "Bar Chart"
       comparator.innerHTML = ""
     } else {
@@ -131,10 +131,12 @@ const initDataSearch = () => {
   let comparator = document.getElementById('comparator');
   selects.forEach((select) => {
     select.addEventListener("change", (event) => {
-      removeData(myChart);
-      let newPrices = updatePrices(data);
-      addData(myChart, newPrices);
-      if (myChart.data.datasets.length > 1) { compareCities(myChart, comparator) };
+      if (myChart.ctx) {
+        removeData(myChart);
+        let newPrices = updatePrices(data);
+        addData(myChart, newPrices);
+        if (myChart.data.datasets.length > 1) { compareCities(myChart, comparator) };
+      }
     });
   });
   let myChart = generateChart();
