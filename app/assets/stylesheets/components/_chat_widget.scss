@@ -1,8 +1,8 @@
  .chat-container {
-  width: 400px;
+  width: 360px;
   position: fixed;
-  bottom: 15px;
-  right: 50px;
+  bottom: 5px;
+  right: 5px;
 
 }
 
@@ -11,24 +11,7 @@
 }
 
 .chat-box {
-  height: 567px;
-  width: 400px;
-  transition: all 250ms ease;
-  overflow: scroll;
-  background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6));
-  color: white;
-  border-radius: 2%;
-
-  .message_content {
-    position: sticky;
-    bottom: 0;
-  }
-
-  h1 {
-    position: sticky;
-    margin: 2px auto 1px 2px;
-    top: 0;
-  }
+  // display: none;
 }
 
 
