@@ -27,6 +27,39 @@
   color: #095256;
 }
 
+.btn-round-full {
+  color: white;
+  background-color: #2a9d8f;
+  font-weight: bold;
+  border: 2px solid #2a9d8f;
+  padding: 10px 24px;
+  border-radius: 50px;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+.btn-round-full:hover {
+  opacity: 1;
+  text-decoration: none;
+  color: #095256;
+  color: white;
+}
+
+.btn-pizza {
+  color: white;
+  background-color: #c57b57;
+  font-weight: bold;
+  border: 2px solid #c57b57;
+  padding: 10px 24px;
+  border-radius: 10px;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+.btn-pizza:hover {
+  opacity: 1;
+  text-decoration: none;
+  color: #f1ab86;
+  color: white;
+}
 .btn-round-sm {
   color: #d4f4dd;
   border: 1px solid #d4f4dd;
