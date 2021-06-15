@@ -31,11 +31,13 @@ const initMapbox = () => {
         }
       }
       const markers = JSON.parse(mapElement.dataset.markers);
+
       markers.forEach((marker) => {
         info['data']['features'].push({
           'type': 'Feature',
           'properties': {
-            'description': marker.info_window
+            'description': marker.info_window,
+            'CITY_TYPE': marker.city_type
           },
           'geometry': {
             'type': 'Point',
@@ -43,7 +45,6 @@ const initMapbox = () => {
           }
         });
       });
-
       map.addSource('marker', info);
       // Add symbol for marker
       map.loadImage('https://res.cloudinary.com/dm71o2t6v/image/upload/v1623698592/laptop-house.png', function (error, image) {
@@ -51,13 +52,23 @@ const initMapbox = () => {
         map.addImage('laptop-house', image);
         // Add a layer showing the places.
         map.addLayer({
-        'id': 'marker',
-        'type': 'symbol',
-        'source': 'marker',
-        'layout': {
-          'icon-image': 'laptop-house',
-          'icon-size': 0.03,
-          }
+          'id': 'marker',
+          'type': 'symbol',
+          'source': 'marker',
+          'layout': {
+            'icon-image': 'laptop-house',
+            'icon-size': 0.05
+            }
+          // 'paint': {
+          //   'icon-color': [
+          //     'match',
+          //     ['get', 'CITY_TYPE'],
+          //     'cheap','#56ab91',
+          //     'normal','#ffac81',
+          //     'expensive','#f28482',
+          //     '#b09e99'
+          //   ],
+          // }
         });
       });
       var popup = new mapboxgl.Popup({

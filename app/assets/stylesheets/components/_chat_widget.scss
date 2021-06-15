@@ -4,11 +4,12 @@
   bottom: 15px;
   right: 50px;
   background-color: white;
-  padding: 20px 20px;
+  padding: 20px 10px;
   border: 1px solid #fad4c0;
   border-radius: 10px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   z-index: 9999;
+  background-image: linear-gradient(rgba(0,0,0,0.05),rgba(0,0,0,0.1));
 }
  .chat-widget {
   border-radius: 50px;
@@ -20,28 +21,6 @@
   background-color: #006d77;
   border-color: #006d77;
 }
-// =======
-// .chat-box {
-//   height: 567px;
-//   width: 400px;
-//   transition: all 250ms ease;
-//   overflow: scroll;
-//   background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6));
-//   color: white;
-//   border-radius: 2%;
-
-//   .message_content {
-//     position: sticky;
-//     bottom: 0;
-//   }
-
-//   h1 {
-//     position: sticky;
-//     margin: 2px auto 1px 2px;
-//     top: 0;
-//   }
-// >>>>>>> master
-// }
 
 .author {
   color: #c57b57;
@@ -55,20 +34,23 @@
   width: 355px;
   position: sticky;
   bottom: 0;
+
 }
 .chat-box {
   height: 567px;
   width: 375px;
   transition: all 250ms ease;
-  overflow: scroll;
-
-  // background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6));
+  overflow-y: scroll;
+  border-radius: 10px;
   margin-bottom: 5px;
+  padding: 5px 5px 10px 5px;
 
   h1 {
+    text-align: center;
     background-color: #fad4c0;
     padding: 10px 30px;
     border-radius: 10px;
     width: 355px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
   }
 }

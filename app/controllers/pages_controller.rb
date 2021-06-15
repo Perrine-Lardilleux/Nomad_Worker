@@ -8,7 +8,8 @@ class PagesController < ApplicationController
       {
         lat: city.latitude,
         lng: city.longitude,
-        info_window: render_to_string(partial: "cities/info_window", locals: { city: city })
+        info_window: render_to_string(partial: "cities/info_window", locals: { city: city }),
+        city_type: city.city_type
       }
     end
   end
