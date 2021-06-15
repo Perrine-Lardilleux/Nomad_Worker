@@ -6,7 +6,7 @@
         <%= render partial: "messages/message", locals: { message: message } %>
       <% end %>
     </div>
-    <%= simple_form_for [ Chatroom.find(1), Message.new ], remote: true, html: { class: "message_submit"} do |f| %>
+    <%= simple_form_for [ Chatroom.find(1), Message.new ], remote: true do |f| %>
       <%= f.input :content, label: false, placeholder: "Message ##{Chatroom.find(1).name}" %>
     <% end %>
   </div>
