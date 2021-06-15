@@ -1,21 +1,21 @@
 require 'faker'
 
 CITIES = [
-  { city: 'Rio', latitude: -22.90684, longitude: -43.17289 },
-  { city: 'Honolulu', latitude: 21.3045, longitude: -157.8557 },
-  { city: 'Bali', latitude: -8.34054, longitude: 115.091945 },
-  { city: 'Rome', latitude: 41.89306, longitude: 12.48278 },
-  { city: 'Paris', latitude: 48.85658, longitude: 2.35183 },
-  { city: 'Lisbon', latitude: 38.7263, longitude: -9.1484 },
-  { city: 'Berlin', latitude: 52.51667, longitude: 13.38333 },
-  { city: 'Vancouver', latitude: 49.2609, longitude: -123.1139 },
-  { city: 'Sydney', latitude: -33.868, longitude: 151.21 },
-  { city: 'Auckland', latitude: -36.85, longitude: 174.78333 },
-  { city: 'Chiang Mai', latitude: 18.83722, longitude: 98.97056 },
-  { city: 'Singapore', latitude: 1.3516161224392, longitude: 103.808052586332 },
-  { city: 'Beirut', latitude: 33.88694, longitude: 35.51306 },
-  { city: 'London', latitude: 51.507321899999994, longitude: -0.12764739999999997 },
-  { city: 'Oslo', latitude: 59.855058, longitude: 10.814466 }
+  { city: 'Rio', latitude: -22.90684, longitude: -43.17289, overall_score: 9.0, temperature: 31, city_type: 'cheap'},
+  { city: 'Honolulu', latitude: 21.3045, longitude: -157.8557, overall_score: 8.5, temperature: 30, city_type: 'expensive' },
+  { city: 'Bali', latitude: -8.34054, longitude: 115.091945, overall_score: 9.9, temperature: 30, city_type: 'cheap' },
+  { city: 'Rome', latitude: 41.89306, longitude: 12.48278, overall_score: 7.6, temperature: 28, city_type: 'normal' },
+  { city: 'Paris', latitude: 48.85658, longitude: 2.35183, overall_score: 6.5, temperature: 25, city_type: 'expensive' },
+  { city: 'Lisbon', latitude: 38.7263, longitude: -9.1484, overall_score: 8.3, temperature: 25, city_type: 'normal' },
+  { city: 'Berlin', latitude: 52.51667, longitude: 13.38333, overall_score: 8.3, temperature: 22, city_type: 'cheap' },
+  { city: 'Vancouver', latitude: 49.2609, longitude: -123.1139, overall_score: 7.3, temperature: 20, city_type: 'normal' },
+  { city: 'Sydney', latitude: -33.868, longitude: 151.21, overall_score: 6.3, temperature: 28, city_type: 'expensive' },
+  { city: 'Auckland', latitude: -36.85, longitude: 174.78333, overall_score: 6.3, temperature: 28, city_type: 'expensive' },
+  { city: 'Chiang Mai', latitude: 18.83722, longitude: 98.97056, overall_score: 9.7, temperature: 32, city_type: 'cheap' },
+  { city: 'Singapore', latitude: 1.3516161224392, longitude: 103.808052586332, overall_score: 6.2, temperature: 33, city_type: 'expensive' },
+  { city: 'Beirut', latitude: 33.88694, longitude: 35.51306, overall_score: 8.4, temperature: 27, city_type: 'normal' },
+  { city: 'London', latitude: 51.507321899999994, longitude: -0.12764739999999997, overall_score: 7.4, temperature: 21, city_type: 'expensive' },
+  { city: 'Oslo', latitude: 59.855058, longitude: 10.814466, overall_score: 6.2, temperature: 15, city_type: 'expensive' }
 ]
 
 puts "Creating users"
@@ -64,7 +64,9 @@ CITIES.each do |hash|
     name: hash[:city],
     latitude: hash[:latitude],
     longitude: hash[:longitude],
-    temperature: rand(-5..30),
+    temperature: hash[:temperature],
+    overall_score: hash[:overall_score],
+    city_type: hash[:city_type],
     data: data
     )
 end
