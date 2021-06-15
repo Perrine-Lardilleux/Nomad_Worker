@@ -1,7 +1,7 @@
 <div class="chat-container">
   <div class="chat-box" id="collapseChat">
     <h1>Nomad Chat</h1>
-    <div class="chat-discussion">
+    <div id="messages" data-chatroom-id="<%= Chatroom.find(1).id %>" class="chat-discussion">
       <% Chatroom.find(1).messages.includes(:user).each do |message| %>
         <%= render partial: "messages/message", locals: { message: message } %>
       <% end %>
