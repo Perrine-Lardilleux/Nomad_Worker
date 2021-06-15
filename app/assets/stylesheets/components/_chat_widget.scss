@@ -1,8 +1,8 @@
- .chat-container {
+.chat-container {
   width: 400px;
   position: fixed;
   bottom: 15px;
-  right: 50px;
+  right: 25px;
   background-color: white;
   padding: 20px 10px;
   border: 1px solid #fad4c0;
@@ -11,21 +11,26 @@
   z-index: 9999;
   background-image: linear-gradient(rgba(0,0,0,0.05),rgba(0,0,0,0.1));
 }
- .chat-widget {
+
+.chat-widget {
   border-radius: 50px;
   background-color: #83c5be;
   border-color: #83c5be;
   width: 100%;
-}
-.chat-widget:hover {
-  background-color: #006d77;
-  border-color: #006d77;
+  &:hover{
+    background-color: #006d77;
+    border-color: #006d77;
+  }
+  &:active {
+    background-color: #006d77;
+    border-color: #006d77;
+  }
+  &:focus{
+    background-color: #006d77;
+    border-color: #006d77;
+  }
 }
 
-.chat-widget:active {
-  background-color: #006d77;
-  border-color: #006d77;
-}
 
 .author {
   color: #c57b57;
@@ -39,6 +44,7 @@
   bottom: 0;
 
 }
+
 .chat-box {
   width: 375px;
   transition: all 250ms ease;
@@ -48,11 +54,9 @@
 
   #messages {
     overflow-y: scroll;
-    overflow-x: wrap; // Not really a solution: FIX LATER. Ok, maybe this is it
+    // overflow-x: wrap;
     height: 567px;
   }
-
-
   h1 {
     text-align: center;
     background-color: #fad4c0;
