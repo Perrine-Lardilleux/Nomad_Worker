@@ -20,28 +20,6 @@
   background-color: #006d77;
   border-color: #006d77;
 }
-// =======
-// .chat-box {
-//   height: 567px;
-//   width: 400px;
-//   transition: all 250ms ease;
-//   overflow: scroll;
-//   background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6));
-//   color: white;
-//   border-radius: 2%;
-
-//   .message_content {
-//     position: sticky;
-//     bottom: 0;
-//   }
-
-//   h1 {
-//     position: sticky;
-//     margin: 2px auto 1px 2px;
-//     top: 0;
-//   }
-// >>>>>>> master
-// }
 
 .author {
   color: #c57b57;
@@ -50,8 +28,6 @@
 .chat-content {
   margin-top: 10px;
   height: 50px;
-  margin-top: 10px;
-  height: 70px;
   width: 355px;
   position: sticky;
   bottom: 0;
@@ -61,8 +37,6 @@
   width: 375px;
   transition: all 250ms ease;
   overflow: scroll;
-
-  // background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6));
   margin-bottom: 5px;
 
   h1 {
