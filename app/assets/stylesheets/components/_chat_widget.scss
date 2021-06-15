@@ -21,6 +21,11 @@
   border-color: #006d77;
 }
 
+.chat-widget:active {
+  background-color: #006d77;
+  border-color: #006d77;
+}
+
 .author {
   color: #c57b57;
 }
@@ -33,11 +38,16 @@
   bottom: 0;
 }
 .chat-box {
-  height: 567px;
   width: 375px;
   transition: all 250ms ease;
-  overflow: scroll;
   margin-bottom: 5px;
+
+  #messages {
+    overflow-y: scroll;
+    overflow-x: wrap; // Not really a solution: FIX LATER. Ok, maybe this is it
+    height: 567px;
+  }
+
 
   h1 {
     background-color: #fad4c0;
