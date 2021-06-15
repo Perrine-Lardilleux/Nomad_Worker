@@ -1,16 +1,18 @@
 <div class="chat-container">
   <div class="chat-box" id="collapseChat">
     <h1>Nomad Chat</h1>
-    <div>
+    <div class="chat-discussion">
       <% Chatroom.find(1).messages.includes(:user).each do |message| %>
         <%= render partial: "messages/message", locals: { message: message } %>
       <% end %>
     </div>
-    <%= simple_form_for [ Chatroom.find(1), Message.new ], remote: true, html: { class: "message_submit"} do |f| %>
-      <%= f.input :content, label: false, placeholder: "Message ##{Chatroom.find(1).name}" %>
+    <%= simple_form_for [ Chatroom.find(1), Message.new ], remote: true do |f| %>
+      <%= f.input :content, input_html: {class:'chat-content'}, label: false, placeholder: "Message ##{Chatroom.find(1).name}" %>
     <% end %>
   </div>
   <button class="btn btn-primary chat-widget" type="button" data-toggle="collapse" data-target="#collapseChat" aria-expanded="false" aria-controls="collapseChat">
       Chat
   </button>
 </div>
+
+<%#= simple_form_for [ Chatroom.find(1), Message.new ], remote: true, html: { class: "message_submit"} do |f| %>
