@@ -29,7 +29,6 @@ const generateChart = () => {
     return myChart;
   }
 
-
 const addData = (chart, data) => {
   chart.data.datasets[0].data = data
   chart.update();
@@ -62,31 +61,46 @@ const updatePrices = (data) => {
   return prices;
 }
 
-const resetSelected = () => {
-  // document.getElementById("selectboxID").selectedIndex = -1; option.selected = ''
-  let selects = document.querySelectorAll('.selects');
-  selects.forEach((select) => {
-    // console.log(select.getElementsByTagName('option').selectedIndex); //.forEach((option) => { option.selectedIndex = -1 })
-    select.getElementsByTagName('option').forEach((option) => { option.selectedIndex = -1 })
-  });
-}
-
 const economicalSearch = () => {
   const button = document.getElementById('economical-search');
+  const myClick = new Event("change");
   button.addEventListener("click", (event) => {
-    resetSelected();
+    event.preventDefault();
     let selects = document.querySelectorAll('.selects');
     selects.forEach((select) => {
-      // console.log(select)
-      select.getElementsByTagName('option')[select.getElementsByTagName('option').length - 1].selected = 'selected'
+      select.selectedIndex = select.length - 1;
     });
+    selects[0].dispatchEvent(myClick);
   });
 }
 
-const activatePizza = () => {
-  const button = document.getElementById('pizza-chart');
+const expensiveSearch = () => {
+  const button = document.getElementById('expensive-search');
+  const myClick = new Event("change");
+  button.addEventListener("click", (event) => {
+    event.preventDefault();
+    let selects = document.querySelectorAll('.selects');
+    selects.forEach((select) => {
+      select.selectedIndex = 0;
+    });
+    selects[0].dispatchEvent(myClick);
+  });
+}
+
+const chartToggle = (myChart) => {
+  const button = document.getElementById('chart-toggle');
+  let comparator = document.getElementById('toggle-comparator');
   button.addEventListener('click', (event) => {
-    pizzaChart();
+    event.preventDefault();
+    event.currentTarget.classList.toggle('pizza');
+    if (event.currentTarget.classList[event.currentTarget.classList.length - 1] === 'pizza') {
+      myChart.destroy();
+      myChart = pizzaChart();
+      event.currentTarget.innerText = "Bar Chart"
+      comparator.innerHTML = ""
+    } else {
+      location.reload();
+    }
   });
 }
 
@@ -101,8 +115,8 @@ const compareCities = (myChart, comparator) => {
         let newData = {
           label: data.name,
           data: updatePrices(data.data),
-          backgroundColor: 'rgba(255, 159, 64, 0.2)',
-          borderColor: 'rgb(255, 159, 64)',
+          backgroundColor: 'rgba(23, 190, 187, 0.2)',
+          borderColor: 'rgb(23, 190, 187)',
           borderWidth: 1
         }
         addCityComparator(myChart, newData);
@@ -117,18 +131,21 @@ const initDataSearch = () => {
   let comparator = document.getElementById('comparator');
   selects.forEach((select) => {
     select.addEventListener("change", (event) => {
-      removeData(myChart);
-      let newPrices = updatePrices(data);
-      addData(myChart, newPrices);
-      if (myChart.data.datasets.length > 1) { compareCities(myChart, comparator) };
-
+      if (myChart.ctx) {
+        removeData(myChart);
+        let newPrices = updatePrices(data);
+        addData(myChart, newPrices);
+        if (myChart.data.datasets.length > 1) { compareCities(myChart, comparator) };
+      }
     });
   });
   let myChart = generateChart();
   comparator.addEventListener("change", (event) => {
     compareCities(myChart, comparator);
   });
-  // economicalSearch();
+  economicalSearch();
+  chartToggle(myChart);
+  expensiveSearch();
 }
 
 export { initDataSearch };

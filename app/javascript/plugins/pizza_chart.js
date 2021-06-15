@@ -22,11 +22,13 @@ const generateChart = () => {
         hoverOffset: 4
       }]
     },
-
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+      },
     });
     return myChart;
   }
-
 
 const addData = (chart, data) => {
   chart.data.datasets[0].data = updatePrices()
