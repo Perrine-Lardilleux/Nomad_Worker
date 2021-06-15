@@ -14,7 +14,7 @@
       </select>
       </div>
     <% end %>
-    <div style="position: absolute; top: 800px">
+    <div style="position: absolute; top: 800px" id="toggle-comparator">
       <select id="comparator">
         <optgroup label="Compare with: ">
           <option value="none">none</option>
@@ -34,6 +34,11 @@
     <a href="" class="btn btn-primary" id="economical-search">Economical Search</a>
   </div>
   <div class="common-search">
-    <a href="" class="btn btn-primary" id="pizza-chart">Pizza Chart</a>
+    <a href="" class="btn btn-primary" id="expensive-search">Expensive Search</a>
+  </div>
+  <div class="common-search">
+    <a href="" class="btn btn-primary" id="chart-toggle">Pizza Chart</a>
   </div>
 </div>
+
+<canvas id="chartjs-4" class="chartjs" width="1314" height="656" style="display: block; height: 328px; width: 657px;"></canvas>
