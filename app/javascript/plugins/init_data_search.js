@@ -135,7 +135,6 @@ const initDataSearch = () => {
       let newPrices = updatePrices(data);
       addData(myChart, newPrices);
       if (myChart.data.datasets.length > 1) { compareCities(myChart, comparator) };
-
     });
   });
   let myChart = generateChart();
