@@ -1,8 +1,13 @@
 .socialproof {
   
+ h3 { font-family: 'Lato', sans-serif;
+ 	 font-weight: bold;
+
+ }
+
  h2 {
     font-family: 'Lato', sans-serif;
- 	font-size: 56px;
+ 	font-size: 48px;
  	line-height: 64px;
  	color: #c57b57 !important;
  	font-weight: lighter;
@@ -12,4 +17,9 @@
 	  
 	  font-weight: bolder;
  }
+}
+
+#signature {
+	padding: 0;
+	font-weight: bolder;
 }
