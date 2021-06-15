@@ -3,6 +3,8 @@ import { Chart } from 'chart.js';
 const generateChart = () => {
     var ctx = document.getElementById('myChart').getContext('2d');
 
+    ctx.width = 500;
+    ctx.height = 500;
     var myChart = new Chart(ctx, {
       type: "pie",
       data: {
@@ -22,11 +24,13 @@ const generateChart = () => {
         hoverOffset: 4
       }]
     },
-
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+      },
     });
     return myChart;
   }
-
 
 const addData = (chart, data) => {
   chart.data.datasets[0].data = updatePrices()
