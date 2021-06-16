@@ -54,6 +54,8 @@ group :development, :test do
 end
 
 group :development do
+  # test stuff
+  gem 'launchy', '~> 2.5.0'
   # Help for better queries
   gem 'bullet', '~> 6.1.4'
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
