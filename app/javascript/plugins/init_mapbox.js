@@ -17,7 +17,7 @@ const initMapbox = () => {
       container: 'map',
       style: 'mapbox://styles/perrinelardilleux/ckpmwhlu855nc17kvaltghj1c',
       center: [4, 7.6333],
-      zoom: 1.5
+      zoom: 2
     });
     map.scrollZoom.disable();
     map.addControl(new mapboxgl.NavigationControl());
