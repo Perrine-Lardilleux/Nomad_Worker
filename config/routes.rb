@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :wishlists, only: [:create, :destroy]
     get '/cost-of-living-estimator', to: 'pages#estimator', as: 'estimator'
     post 'send_city_email', to: 'cities#send_details'
+    post 'send_city_offers_email', to: 'cities#send_offers'
   end
 
   resources :wishlists, only: [:index]

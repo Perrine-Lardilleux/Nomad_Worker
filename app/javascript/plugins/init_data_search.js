@@ -58,6 +58,7 @@ const updatePrices = (data) => {
     }
   });
   prices.push(prices.reduce((a, b) => a + b, 0))
+  document.getElementById('prices').value = prices;
   return prices;
 }
 

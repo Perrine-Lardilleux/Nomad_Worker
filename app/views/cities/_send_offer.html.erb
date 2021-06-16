@@ -1,10 +1,12 @@
-<div class="mt-5 mr-5 ml-auto">
+<div class="d-flex justify-content-center">
   <div class="card my-4 text-center" style="width: 18rem; background-color: #006d77; color: white;">
     <div class="card-body">
       <h5 class="card-title font-weight-bold pb-2">Don't want to miss anything?</h5>
       <p class="card-text">
-        <script></script>
-        <%= link_to 'Send me this info!', city_send_city_email_path(city), method: :post,  class:"btn-round-sm" %>
+        <%= form_with url: city_send_city_offers_email_path(city) do |form| %>
+          <%= form.hidden_field :prices %>
+          <%= form.submit "Send me this info!", class:"btn btn-round-full" %>
+        <% end %>
       </p>
     </div>
   </div>

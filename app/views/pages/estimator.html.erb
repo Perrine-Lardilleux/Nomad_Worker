@@ -14,9 +14,10 @@
     <div class="col-4">
       <%= render partial: "pages/budgets", cached: true %>
       <%= render partial: "pages/cities_select", locals: { cities: @cities }, cached: true %>
-      <div class="common-search pt-5 d-flex justify-content-center">
+      <div class="common-search py-5 d-flex justify-content-center border-bottom">
           <a href="" class="btn btn-pizza" id="chart-toggle">Pie Chart</a>
       </div>
+      <%= render partial: "cities/send_offer", locals: { city: @city } %>
     </div>
   </div>
 
