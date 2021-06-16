@@ -48,6 +48,8 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'dotenv-rails'
+  # Help for better queries
+  gem 'bullet', '~> 6.1.4'
 
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
@@ -56,8 +58,6 @@ end
 group :development do
   # test stuff
   gem 'launchy', '~> 2.5.0'
-  # Help for better queries
-  gem 'bullet', '~> 6.1.4'
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'letter_opener', '~> 1.7'
