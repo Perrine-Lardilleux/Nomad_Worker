@@ -1,57 +1,18 @@
 <div class="adjust" style="height:100px"></div>
 <h1 style="text-align: center; font-size: 30px; font-weight: bold; color: #c57b57;">Cost of Living Estimator</h1>
 <div class="container my-5">
-  <div id="data" data-city="<%= @city.to_json %>" class="row justify-content-between">
-    <% @city.data.each do |category, values| %>
-    <div class="col-1">
-      <label for="pet-select"><%= category.capitalize %>:</label>
-      <select class="selects">
-        <optgroup label="<%= category %>">
-          <% values.each do |subcategory| %>
-            <option value="<%= subcategory[0] %>"><%= subcategory[0] %></option>
-          <% end %>
-        </optgroup>
-      </select>
-      </div>
-    <% end %>
-  </div>
+  <%= render partial: "pages/costs_select", locals: { city: @city }, cached: true %>
 
   <div id="chart-container" class="mt-5">
     <canvas id="myChart" width="400" height="350" style='max-height: 400px;'>
     </canvas>
   </div>
   <div class="row mt-5 pt-2 pb-4">
-    <div class="col-6 border-right py-4">
-      <div class="d-flex justify-content-center" style="color: #495867; font-weight: bold;">
-        <h4>Compare with an other city:</h4>
-      </div>
-      <div id="toggle-comparator" class="d-flex justify-content-center">
-        <select id="comparator">
-          <optgroup label="Compare with: ">
-            <option value="none">none</option>
-            <% @cities.each do |city| %>
-              <option value="<%= city.id %>"><%= city.name %></option>
-            <% end %>
-          </optgroup>
-        </select>
-      </div>
-    </div>
-    <div class="col-6 py-4">
-    <div class="d-flex justify-content-center" style="color: #495867; font-weight: bold;">
-      <h4>What's your preference?</h4>
-    </div>
-      <div class="row d-flex justify-content-around mt-4">
-        <div class="common-search">
-          <a href="" class="btn btn-round-full" id="economical-search">On a budget</a>
-        </div>
-        <div class="common-search">
-          <a href="" class="btn btn-round-full" id="expensive-search">Comfortable stay</a>
-        </div>
-      </div>
-    </div>
+    <%= render partial: "pages/cities_select", locals: { cities: @cities }, cached: true %>
+    <%= render partial: "pages/budgets", cached: true %>
   </div>
   <div class="common-search mt-5 d-flex justify-content-center">
-      <a href="" class="btn btn-pizza" id="chart-toggle">Back to Pizza Chart</a>
+      <a href="" class="btn btn-pizza" id="chart-toggle">Pie Chart</a>
   </div>
 </div>
 

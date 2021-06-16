@@ -1,0 +1,15 @@
+<div class="col-6 border-right py-4">
+  <div class="d-flex justify-content-center" style="color: #495867; font-weight: bold;">
+    <h4>Compare with an other city:</h4>
+  </div>
+  <div id="toggle-comparator" class="d-flex justify-content-center">
+    <select id="comparator">
+      <optgroup label="Compare with: ">
+        <option value="none">none</option>
+        <% cities.each do |city| %>
+          <option value="<%= city.id %>"><%= city.name %></option>
+        <% end %>
+      </optgroup>
+    </select>
+  </div>
+</div>
