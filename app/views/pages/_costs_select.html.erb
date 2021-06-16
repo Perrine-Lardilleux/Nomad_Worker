@@ -1,12 +1,12 @@
-<div id="data" data-city="<%= city.to_json %>" class="row justify-content-between">
+<div id="data" data-city="<%= city.to_json %>" class="row justify-content-between pr-5">
   <% city.data.each do |category, values| %>
   <div class="col-1">
     <label for="pet-select"><%= category.capitalize %>:</label>
     <select class="selects">
       <optgroup label="<%= category %>">
         <% values.each do |subcategory, _value| %>
-          <% if subcategory.split('_')[1] == 'transportation' %>
-            <option value="<%= subcategory %>"><%= subcategory.split('_')[0].capitalize + ' ' +  subcategory.split('_')[1].capitalize %></option>
+          <% if subcategory.split('_')[1] %>
+            <option value="<%= subcategory %>"><%= subcategory.split('_')[0].capitalize + ' ' +  subcategory.split('_')[1] %></option>
           <% else %>
             <option value="<%= subcategory %>"><%= subcategory.capitalize %></option>
           <% end %>

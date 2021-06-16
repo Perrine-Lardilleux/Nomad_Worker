@@ -1,0 +1,19 @@
+<p><%= @greeting %> Here's some useful information about <%= @city.name %></p>
+
+<div class="container my-5">
+  <div class="content mb-5">
+    <div class="mt-5 ml-5">
+      <h2 class="card-title font-weight-bold border-bottom pb-2">Prices according to your budget:</h2>
+      <li>Food: $<%= @prices.split(",")[0].to_f.round(2) %> </li>
+      <li>Rent: $<%= @prices.split(",")[1].to_f.round(2) %> </li>
+      <li>Drink: $<%= @prices.split(",")[2].to_f.round(2) %> </li>
+      <li>Tobacco: $<%= @prices.split(",")[3].to_f.round(2) %> </li>
+      <li>Utilities: $<%= @prices.split(",")[4].to_f.round(2) %> </li>
+      <li>Recreation: $<%= @prices.split(",")[5].to_f.round(2) %> </li>
+      <li>Transportation: $<%= @prices.split(",")[6].to_f.round(2) %> </li>
+      <li>TOTAL: $<%= @prices.split(",")[7].to_f.round(2) %> </li>
+    </div>
+    <p>Check out some discounts:</p>
+    <li>Skyscanner (10%): www.skyscanner.com/nomadworkers</li>
+  </div>
+</div>

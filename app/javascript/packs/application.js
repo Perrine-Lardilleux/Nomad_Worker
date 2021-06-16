@@ -30,9 +30,7 @@ import { initMapbox } from '../plugins/init_mapbox';
 import { initDataSearch } from '../plugins/init_data_search';
 import { slide } from '../components/slide';
 import { initUpdateNavbarOnScroll } from '../components/navbar';
-// import { initSelect2 } from '../plugins/init_select2';
-// Internal imports, e.g:
-// import { initSelect2 } from '../components/init_select2';
+
 window.jQuery = $;
 window.$ = $;
 

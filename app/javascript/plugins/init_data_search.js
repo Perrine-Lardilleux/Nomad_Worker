@@ -58,6 +58,7 @@ const updatePrices = (data) => {
     }
   });
   prices.push(prices.reduce((a, b) => a + b, 0))
+  document.getElementById('prices').value = prices;
   return prices;
 }
 
@@ -99,8 +100,7 @@ const chartToggle = (myChart) => {
       event.currentTarget.innerText = "Bar Chart";
       comparator.innerHTML = "";
       let total = Math.round(updatePizzaPrices().reduce((a, b) => a + b, 0));
-      document.getElementById('h4-comparator').innerHTML = "";
-      document.getElementById('pizza-total').innerHTML = `TOTAL: $${total}`;
+      document.getElementById('h4-comparator').innerHTML = `TOTAL: $${total}`;
     } else {
       location.reload();
     }

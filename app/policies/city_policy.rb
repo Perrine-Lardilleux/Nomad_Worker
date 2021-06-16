@@ -12,4 +12,8 @@ class CityPolicy < ApplicationPolicy
   def send_details?
     true
   end
+
+  def send_offers?
+    true
+  end
 end
