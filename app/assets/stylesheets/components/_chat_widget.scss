@@ -1,12 +1,13 @@
 .chat-container {
+  font-weight: 700;
   position: fixed;
-  bottom: 15px;
-  right: 25px;
+  bottom: 1em;
+  right: 1.5em;
   background-color: white;
-  padding: 20px 10px;
+  padding: 0.8em 0.5em;
   border: 1px solid #fad4c0;
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 0.8em;
+  box-shadow: 0 0 1.5em rgba(0,0,0,0.2);
   z-index: 9999;
   background-image: linear-gradient(rgba(0,0,0,0.05),rgba(0,0,0,0.1));
 }
@@ -14,18 +15,18 @@
 .chat-widget {
   // Most of this is simply the btn btn-primary style, copied so bootstrap annoying pseudo classes don't ruin my life
   display: inline-block;
-  font-weight: 400;
   text-align: center;
   vertical-align: middle;
   border: 1px solid transparent;
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
   line-height: 1.5;
-  border-radius: 50px;
+  font-weight: 700;
+  border-radius: 2em;
   background-color: #83c5be;
   border-color: #83c5be;
   width: 100%;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 1em rgba(0,0,0,0.2);
   &:hover{
     background-color: #006d77;
     border-color: #006d77;
@@ -42,11 +43,12 @@
 
 .author {
   color: #c57b57;
+  font-weight: 700;
 }
 
 .chat-content {
-  margin-top: 10px;
-  height: 50px;
+  margin-top: 0.8em;
+  height: 3em;
   width: 355px;
   position: sticky;
   bottom: 0;
@@ -54,17 +56,23 @@
 }
 
 .chat-box {
-  width: 375px;
+  width: 250px;
   transition: all 100ms ease;
   border-radius: 10px;
   margin-bottom: 5px;
-  padding: 5px 5px 10px 5px;
+  padding: 5px 5px 0px 5px;
+  @media screen and (min-width: $mediaLargeWidth) {
+    width: 375px;
+  }
 
   #messages {
     overflow-y: scroll;
-    // overflow-x: wrap;
-    height: 567px;
-    width: 400px;
+    height: 380px;
+    width: 265px;
+    @media screen and (min-width: $mediaLargeWidth) {
+      height: 567px;
+      width: 400px;
+    }
   }
   h1 {
     text-align: center;
