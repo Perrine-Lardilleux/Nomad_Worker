@@ -3,16 +3,8 @@
     <div class="card-body">
       <h5 class="card-title font-weight-bold pb-2">Don't want to miss anything?</h5>
       <p class="card-text">
-        <%= link_to 'Send me this info!', city_send_city_email_path(city), remote: true, class:"btn-round-sm" %>
+        <%= link_to 'Send me this info!', city_send_city_email_path(city), method: :post, remote: true, class:"btn-round-sm" %>
       </p>
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
