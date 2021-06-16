@@ -7,15 +7,15 @@ CITIES = [
     city_type: 'expensive', country: 'USA', language: 'English', currency: 'USD' },
   { city: 'Bali', latitude: -8.34054, longitude: 115.091945, overall_score: 9.9, temperature: 30, city_type: 'cheap',
     country: 'Indonesia', language: 'Indonesian', currency: 'IDR' },
-  { city: 'Rome', latitude: 41.89306, longitude: 12.48278, overall_score: 7.6, temperature: 28, city_type: 'normal',
+  { city: 'Rome', latitude: 41.89306, longitude: 12.48278, overall_score: 7.6, temperature: 28, city_type: 'expensive',
     country: 'Italy', language: 'Italian', currency: 'EUR' },
   { city: 'Paris', latitude: 48.85658, longitude: 2.35183, overall_score: 6.5, temperature: 25, city_type: 'expensive',
     country: 'France', language: 'French', currency: 'EUR' },
   { city: 'Lisbon', latitude: 38.7263, longitude: -9.1484, overall_score: 8.3, temperature: 25, city_type: 'normal',
     country: 'Portugal', language: 'Portuguese', currency: 'EUR' },
-  { city: 'Berlin', latitude: 52.51667, longitude: 13.38333, overall_score: 8.3, temperature: 22, city_type: 'cheap',
+  { city: 'Berlin', latitude: 52.51667, longitude: 13.38333, overall_score: 8.3, temperature: 22, city_type: 'expensive',
     country: 'Germany', language: 'German', currency: 'EUR' },
-  { city: 'Vancouver', latitude: 49.2609, longitude: -123.1139, overall_score: 7.3, temperature: 20, city_type: 'normal',
+  { city: 'Vancouver', latitude: 49.2609, longitude: -123.1139, overall_score: 7.3, temperature: 20, city_type: 'expensive',
     country: 'Canada', language: 'English/French', currency: 'CAD' },
   { city: 'Sydney', latitude: -33.868, longitude: 151.21, overall_score: 6.3, temperature: 28, city_type: 'expensive',
     country: 'Australia', language: 'English', currency: 'AUD' },
@@ -37,8 +37,16 @@ CITIES = [
     country: 'South Africa', language: 'English', currency: 'ZAR' },
   { city: 'Gaborone', latitude: -24.658333, longitude: 25.908333, overall_score: 6.2, temperature: 25, city_type: 'cheap',
     country: 'Botswana', language: 'English', currency: 'BWP' },
-  { city: 'Montevideo', latitude: -34.883611, longitude: -56.181944, overall_score: 8.2, temperature: 15, city_type: 'expensive',
-    country: 'Uruguay', language: 'Spanish', currency: 'UYU' }
+  { city: 'Montevideo', latitude: -34.883611, longitude: -56.181944, overall_score: 8.2, temperature: 15, city_type: 'normal',
+    country: 'Uruguay', language: 'Spanish', currency: 'UYU' },
+  { city: 'Puerto Vallarta', latitude: 20.666667, longitude: -105.266667, overall_score: 7.2, temperature: 25, city_type: 'normal',
+    country: 'Mexico', language: 'Spanish', currency: 'MXN' },
+  { city: 'San José', latitude: 9.933333, longitude: -84.083333, overall_score: 8.5, temperature: 30, city_type: 'cheap',
+    country: 'Costa Rica', language: 'Spanish', currency: 'CRC' },
+  { city: 'Casablanca', latitude: 33.533333, longitude: -7.583333, overall_score: 6.7, temperature: 20, city_type: 'cheap',
+    country: 'Morocco', language: 'Moroccan Arabic', currency: 'MAD' },
+  { city: 'Colombo', latitude: 6.934444, longitude: 79.842778, overall_score: 7.1, temperature: 25, city_type: 'cheap',
+    country: 'Sri Lanka', language: 'Sinhala/English', currency: 'LKR' }
 ]
 
 puts "Seeding DB"
