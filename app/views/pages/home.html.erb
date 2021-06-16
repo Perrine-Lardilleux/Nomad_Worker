@@ -1,8 +1,22 @@
+<div class="banner d-flex flex-column align-items-center justify-content-center">
+  <div class = "content row align-items-center justify-content-center  ">
+      <%= video_tag("hero.mp4", autoplay: :autoplay, loop: :loop, muted: :muted) %>
+    <div class = "col-6 align-items-center justify-content-center  ">
+      <h1>Nomad Worker <strong>help you</strong> work from <strong>the world</strong></h1>
+      <p> get accurate cost of living that suits your lifestyle and go global now</p>
+    </div>
+    <div class="col-2 flex-row d-flex flex-column justify-content-center pt-10">
+      <a class="btn btn-flat" href="#">Explore</a>
+    </div>
+  </div>
+</div>
+ 
+<div class="adjust" style="height:150px"></div>
 <%= render partial: 'pages/carousel', cached: true %>
-<div class="adjust" style="height:625px"></div>
 <div class="row justify-content-center pb-4" style="color: black;">
   <%= link_to "Discover more Nomad Hubs", cities_path, class:'btn-round' %>
 </div>
+
 
 <div id="map" class="my-5 ml-auto mr-auto"
     style="width: 60vw; height: 500px; border-top: 1px solid #efe6dd;"
@@ -15,3 +29,4 @@
 <div class="row justify-content-center pb-4" style="color: black;">
   <%= link_to "nomadize now", cities_path, class:'btn-round' %>
 </div>
+

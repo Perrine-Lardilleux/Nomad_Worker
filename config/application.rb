@@ -19,7 +19,8 @@ module NomadWorker
     config.action_view.embed_authenticity_token_in_remote_forms = true
     # Background jobs stuff
     config.active_job.queue_adapter = :sidekiq
-
+    config.assets.paths << "#{Rails.root}/app/assets/videos"
+    config.assets.enabled = true
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
