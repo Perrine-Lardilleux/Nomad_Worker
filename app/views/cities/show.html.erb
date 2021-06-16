@@ -10,15 +10,15 @@
 
 <div class="container my-5">
   <div class="content mb-5" id="menu">
-    <%= render partial: "show_menu" %>
-    <%= render partial: "city_info", locals: { city: @city } %>
-    <%= render partial: "weather", locals: { city: @city } %>
-    <%= render partial: "coworking", locals: { city: @city } %>
+    <%= render partial: "cities/show_menu" %>
+    <%= render partial: "cities/city_info", locals: { city: @city } %>
+    <%= render partial: "cities/weather", locals: { city: @city } %>
+    <%= render partial: "cities/coworking", locals: { city: @city } %>
     <div class="row">
-      <%= render partial: "costs_card", locals: { city: @city } %>
-      <%= render partial: "send_info", locals: { city: @city } %>
+      <%= render partial: "cities/costs_card", locals: { city: @city } %>
+      <%= render partial: "cities/send_info", locals: { city: @city } %>
     </div>
-    <%= render partial: "reviews", locals: { city: @city } %>
+    <%= render partial: "cities/reviews", locals: { city: @city } %>
   </div>
   <%= link_to 'Back', cities_path, class:"btn-flat" %>
 </div>
