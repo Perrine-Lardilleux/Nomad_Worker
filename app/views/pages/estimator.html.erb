@@ -1,13 +1,14 @@
 <div class="adjust" style="height:100px"></div>
 
-<%= link_to 'Back', city_path(@city), class:"btn-flat" %>
-<h1 style="text-align: center; font-size: 30px; font-weight: bold; color: #c57b57;">Cost of Living Estimator</h1>
+<h1 style="text-align: center; font-size: 30px; font-weight: bold; color: #c57b57;">Cost of Living Estimator for <%= link_to @city.name, city_path(@city), style: "color: black;" %></h1>
 <div class="container my-5">
   <%= render partial: "pages/costs_select", locals: { city: @city }, cached: true %>
 
   <div id="chart-container" class="mt-5">
+    <h4 style="text-align: center;" id="pizza-total" class="mb-2"></h4>
     <canvas id="myChart" width="400" height="350" style='max-height: 400px;'>
     </canvas>
+    <h4 style="text-align: center;" class="mt-4">*All values in USD</h4>
   </div>
   <div class="row mt-5 pt-2 pb-4">
     <%= render partial: "pages/cities_select", locals: { cities: @cities }, cached: true %>
@@ -16,6 +17,7 @@
   <div class="common-search mt-5 d-flex justify-content-center">
       <a href="" class="btn btn-pizza" id="chart-toggle">Pie Chart</a>
   </div>
+  <%= link_to 'Back', city_path(@city), class:"btn-flat" %>
 </div>
 
 

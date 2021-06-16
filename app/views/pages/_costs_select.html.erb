@@ -5,7 +5,11 @@
     <select class="selects">
       <optgroup label="<%= category %>">
         <% values.each do |subcategory| %>
-          <option value="<%= subcategory[0] %>"><%= subcategory[0] %></option>
+          <% if subcategory.split('_')[1] === 'transportation' %>
+            <option value="<%= subcategory[0] %>"><%= subcategory.split('_')[0] + ' ' +  subcategory.split('_')[1] %></option>
+          <% else %>
+            <option value="<%= subcategory[0] %>"><%= subcategory[0].capitalize %></option>
+          <% end %>
         <% end %>
       </optgroup>
     </select>
