@@ -333,6 +333,7 @@ DEPENDENCIES
   faker
   font-awesome-sass
   jbuilder (~> 2.7)
+  launchy (~> 2.5.0)
   letter_opener (~> 1.7)
   listen (~> 3.2)
   nokogiri (~> 1.8)
