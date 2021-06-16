@@ -9,7 +9,7 @@ const generateChart = () => {
       labels: ["food", "rent", "drink", "tobacco", "utilities", "recreation", "transportation"],
       datasets: [{
         label: 'Price',
-        data: updatePrices(),
+        data: updatePizzaPrices(),
         backgroundColor: [
           'rgb(255, 99, 132)',
           'rgb(255, 159, 64)',
@@ -31,7 +31,7 @@ const generateChart = () => {
   }
 
 const addData = (chart, data) => {
-  chart.data.datasets[0].data = updatePrices()
+  chart.data.datasets[0].data = updatePizzaPrices()
   chart.update();
 }
 
@@ -40,7 +40,7 @@ const removeData = (chart) => {
   chart.update();
 }
 
-const updatePrices = () => {
+const updatePizzaPrices = () => {
   let selects = document.querySelectorAll('.selects');
   let prices = [];
   const data = JSON.parse(document.getElementById('data').dataset.city).data;
@@ -64,11 +64,14 @@ const pizzaChart = () => {
   selects.forEach((select) => {
     select.addEventListener("change", (event) => {
       removeData(myChart);
-      let newPrices = updatePrices();
+      let newPrices = updatePizzaPrices();
       addData(myChart, newPrices)
+      let total = Math.round(updatePizzaPrices().reduce((a, b) => a + b, 0));
+      document.getElementById('pizza-total').innerHTML = `TOTAL: $${total}`;
     });
   });
   let myChart = generateChart();
 }
 
 export { pizzaChart };
+export { updatePizzaPrices };

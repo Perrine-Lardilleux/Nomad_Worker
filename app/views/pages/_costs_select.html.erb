@@ -4,8 +4,12 @@
     <label for="pet-select"><%= category.capitalize %>:</label>
     <select class="selects">
       <optgroup label="<%= category %>">
-        <% values.each do |subcategory| %>
-          <option value="<%= subcategory[0] %>"><%= subcategory[0] %></option>
+        <% values.each do |subcategory, _value| %>
+          <% if subcategory.split('_')[1] == 'transportation' %>
+            <option value="<%= subcategory %>"><%= subcategory.split('_')[0].capitalize + ' ' +  subcategory.split('_')[1].capitalize %></option>
+          <% else %>
+            <option value="<%= subcategory %>"><%= subcategory.capitalize %></option>
+          <% end %>
         <% end %>
       </optgroup>
     </select>

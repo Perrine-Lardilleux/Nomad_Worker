@@ -1,5 +1,5 @@
 import { Chart } from 'chart.js';
-import { pizzaChart } from '../plugins/pizza_chart';
+import { pizzaChart, updatePizzaPrices } from '../plugins/pizza_chart';
 
 const generateChart = () => {
     var ctx = document.getElementById('myChart').getContext('2d');
@@ -96,13 +96,19 @@ const chartToggle = (myChart) => {
     if (event.currentTarget.classList[event.currentTarget.classList.length - 1] === 'pizza') {
       myChart.destroy();
       myChart = pizzaChart();
-      event.currentTarget.innerText = "Bar Chart"
-      comparator.innerHTML = ""
+      event.currentTarget.innerText = "Bar Chart";
+      comparator.innerHTML = "";
+      let total = Math.round(updatePizzaPrices().reduce((a, b) => a + b, 0));
+      document.getElementById('h4-comparator').innerHTML = "";
+      document.getElementById('pizza-total').innerHTML = `TOTAL: $${total}`;
     } else {
       location.reload();
     }
   });
 }
+
+
+
 
 const compareCities = (myChart, comparator) => {
   if (comparator.value === "none") {
