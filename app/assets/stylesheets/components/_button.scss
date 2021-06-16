@@ -163,3 +163,22 @@ button {
   }
 }
 
+.glowing {
+  animation: glowing 1300ms infinite;
+}
+
+@keyframes glowing {
+  0% {
+    background-color: #095256;
+    box-shadow: 0 0 3px #095256;
+  }
+  50% {
+    background-color: #2a9d8f;
+    box-shadow: 0 0 10px #2a9d8f;
+  }
+  100% {
+    background-color: #095256;
+    box-shadow: 0 0 3px #095256;
+  }
+}
+
