@@ -12,6 +12,7 @@ class MessagesController < ApplicationController
             @chatroom,
             render_to_string(partial: "message", locals: { message: @message })
           )
+          render "create.js.erb"
         end
       end
     else

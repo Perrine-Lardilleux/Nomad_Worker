@@ -67,6 +67,7 @@
 
   #messages {
     overflow-y: scroll;
+    overscroll-behavior: contain;
     height: 380px;
     width: 265px;
     @media screen and (min-width: $mediaLargeWidth) {
