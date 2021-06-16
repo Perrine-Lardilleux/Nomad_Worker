@@ -2,7 +2,7 @@
 
 <div class="container mt-4 mb-5">
   <br>
-  <h1 style="text-align: center; font-size: 30px; font-weight: bold; color: #c57b57; padding-bottom: 25px;">Best Nomads Hubs</h1>
+  <h1 style="text-align: center; font-size: 30px; font-weight: bold; color: #c57b57; padding-bottom: 25px;">Best Nomad Hubs</h1>
   <div class="question pb-3 bold" style="text-align: center; font-size: 24px; font-weight: bold; color: #006d77;">
     Where is your next stop?
   </div>
@@ -17,5 +17,8 @@
     </div>
   <% end %>
 </div>
-
-<%= render partial: "shared/city", locals: { cities: @cities } %>
+<div class="container my-4">
+  <div class="cards">
+    <%= render partial: "shared/city", collection: @cities, cached: true %>
+  </div>
+</div>

@@ -1,37 +1,4 @@
-<div id="wrap" class="d-flex">
-  <a href="#" class="hb">
-    <div class="c">
-      <%= cl_image_tag("sydney", width: 400, height: 400, crop: :fill)%>
-      <div class="txt">
-        <h1>Sydney</h1>
-      </div>
-    </div>
-  </a>
-  <a href="#" class="hb">
-    <div class="c">
-      <%= cl_image_tag("singapore",  width: 400, height: 400, crop: :fill)%>
-      <div class="txt">
-        <h1>Singapore</h1>
-      </div>
-    </div>
-  </a>
-  <a href="#" class="hb">
-    <div class="c">
-      <%= cl_image_tag("bali",  width: 400, height: 400, crop: :fill)%>
-      <div class="txt">
-        <h1>Bali</h1>
-      </div>
-    </div>
-  </a>
-  <a href="#" class="hb">
-    <div class="c">
-      <%= cl_image_tag("rome",  width: 400, height: 400, crop: :fill)%>
-      <div class="txt">
-        <h1>Rome</h1>
-      </div>
-    </div>
-  </a>
-</div>
+<%= render partial: 'pages/carousel', cached: true %>
 <div class="adjust" style="height:625px"></div>
 <div class="row justify-content-center pb-4" style="color: black;">
   <%= link_to "Discover more Nomad Hubs", cities_path, class:'btn-round' %>
@@ -42,44 +9,5 @@
     data-markers="<%= @markers.to_json %>"
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
-<div class="container text-center mt-4 mx-auto mb-5">
-  <div class="row d-flex justify-content-center mt-5 mx-5">
-    <div class="card mt-5 text-center p-3 mr-2" style="width: 20rem;">
-      <div class="card-image mt-4 mb-5">
-        <%= cl_image_tag("earth",  width: 50, height: 50)%>
-      </div>
-      <div class="card-title mb-4" style="color: #c57b57">
-        <strong>Antecipate your cost of living all over the World</strong>
-      </div>
-      <div class="card-text">
-        <p> Our mission is to accelerate the freedom of global movement enabled by remote work.
-  Nomad Worker is a technology company that builds the infrastructure for people to live anywhere in the world.</p>
-      </div>
-    </div>
-    <div class="card mt-5 text-center p-3 mx-2" style="width: 20rem;">
-      <div class="card-image mt-4 mb-5">
-        <%= cl_image_tag("star",  width: 50, height: 50)%>
-      </div>
-      <div class="card-title mb-4" style="color: #c57b57">
-        <strong>Be part of a worldwide community</strong>
-      </div>
-      <div class="card-text">
-        <p> Not sure about your next spot, check out the reviews about it, ask questions to the community and make friends!
-        </p>
-      </div>
-    </div>
-    <div class="card mt-5 text-center p-3  ml-2" style="width: 20rem;">
-      <div class="card-image mb-3">
-        <%= cl_image_tag("heart",  width: 100, height: 100)%>
-      </div>
-      <div class="card-title mb-4" style="color: #c57b57">
-        <strong>Keep your favorites to organize your next stop</strong>
-      </div>
-      <div class="card-text">
-        <p>
-          Find the next best hub to travel, right temperature for the season, cost adapted to your budget, best reviews, etc... All saved to organize it all and book a flight, pack up and go!
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
+<%= render partial: 'pages/features_cards', cached: true %>
+<%= render partial: 'pages/socialproof', cached: true %>

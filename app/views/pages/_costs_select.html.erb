@@ -1,0 +1,14 @@
+<div id="data" data-city="<%= city.to_json %>" class="row justify-content-between">
+  <% city.data.each do |category, values| %>
+  <div class="col-1">
+    <label for="pet-select"><%= category.capitalize %>:</label>
+    <select class="selects">
+      <optgroup label="<%= category %>">
+        <% values.each do |subcategory| %>
+          <option value="<%= subcategory[0] %>"><%= subcategory[0] %></option>
+        <% end %>
+      </optgroup>
+    </select>
+    </div>
+  <% end %>
+</div>
