@@ -50,13 +50,13 @@ end
 puts "Creating 15 cities"
 CITIES.each do |hash|
   data = {
-    rent: { coliving: 1000*rand(1.1..3.0), hostel: 1500*rand(1.1..3.0), airbnb: 2000*rand(1.1..3.0), hotel: 3000*rand(1.1..3.0) },
-    food: { supermarket: 100*rand(1.1..3.0), restaurant: 200*rand(1.1..3.0) },
-    drink: { occasionally: 100*rand(1.1..3.0), frequently: 200*rand(1.1..3.0) },
-    tobacco: { non_user: 0*rand(1.1..3.0), user: 50*rand(1.1..3.0) },
-    utilities: { economical: 40*rand(1.1..3.0), expensive: 65*rand(1.1..3.0) },
-    recreation: { occasionally: 25*rand(1.1..3.0), frequently: 60*rand(1.1..3.0) },
-    transportation: { public_transportation: 30*rand(1.1..3.0), rent_transportation: 50*rand(1.1..3.0) }
+    rent: { coliving: 400*rand(1.1..2.0), hostel: 600*rand(1.1..2.0), airbnb: 800*rand(1.1..2.0), hotel: 1000*rand(1.1..2.0) },
+    food: { supermarket: 200*rand(1.1..3.0), restaurant: 400*rand(1.1..3.0) },
+    drink: { occasionally: 200*rand(1.1..3.0), frequently: 400*rand(1.1..3.0) },
+    tobacco: { non_user: 0*rand(1.1..3.0), user: 150*rand(1.1..3.0) },
+    utilities: { economical: 100*rand(1.1..3.0), expensive: 200*rand(1.1..3.0) },
+    recreation: { occasionally: 60*rand(1.1..3.0), frequently: 120*rand(1.1..3.0) },
+    transportation: { public_transportation: 60*rand(1.1..3.0), rent_transportation: 100*rand(1.1..3.0) }
   }
 
   city = City.create!(
