@@ -6,10 +6,10 @@
   font-weight: lighter;
   opacity: 0.6;
   transition: opacity 0.3s ease;
-}
 
-.btn-ghost:hover {
-  opacity: 1;
+  &:hover {
+    opacity: 1;
+  }
 }
 
 .btn-round {
@@ -20,11 +20,12 @@
   border-radius: 50px;
   opacity: 0.6;
   transition: opacity 0.3s ease;
-}
-.btn-round:hover {
-  opacity: 1;
-  text-decoration: none;
-  color: #095256;
+
+  &:hover {
+    opacity: 1;
+    text-decoration: none;
+    color: #095256;
+  }
 }
 
 .btn-round-full {
@@ -36,12 +37,13 @@
   border-radius: 50px;
   opacity: 0.6;
   transition: opacity 0.3s ease;
-}
-.btn-round-full:hover {
-  opacity: 1;
-  text-decoration: none;
-  color: #095256;
-  color: white;
+
+  &:hover {
+    opacity: 1;
+    text-decoration: none;
+    color: #095256;
+    color: white;
+  }
 }
 
 .btn-pizza {
@@ -53,12 +55,13 @@
   border-radius: 10px;
   opacity: 0.6;
   transition: opacity 0.3s ease;
-}
-.btn-pizza:hover {
-  opacity: 1;
-  text-decoration: none;
-  color: #f1ab86;
-  color: white;
+
+  &:hover {
+    opacity: 1;
+    text-decoration: none;
+    color: #f1ab86;
+    color: white;
+  }
 }
 
 .btn-show-menu {
@@ -68,15 +71,21 @@
   border: 2px solid #c57b57;
   padding: 10px;
   border-radius: 5px 5px 0 0;
-  opacity: 0.6;
-  transition: opacity 0.3s ease;
-}
-.btn-show-menu:hover {
   opacity: 1;
-  text-decoration: none;
-  color: #f1ab86;
-  color: white;
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    opacity: 1;
+    text-decoration: none;
+    color: #f1ab86;
+    color: white;
+  }
 }
+
+.btn-show-menu.collapsed {
+  opacity: 0.6;
+}
+
 .btn-round-sm {
   color: #d4f4dd;
   border: 1px solid #d4f4dd;
@@ -86,12 +95,13 @@
   opacity: 0.6;
   transition: opacity 0.3s ease;
   font-size: 15px;
-}
-.btn-round-sm:hover {
-  opacity: 1;
-  text-decoration: none;
-  color: #095256;
-  border: 1px solid #095256
+
+  &:hover {
+    opacity: 1;
+    text-decoration: none;
+    color: #095256;
+    border: 1px solid #095256;
+  }
 }
 
 .btn-flat {
@@ -101,11 +111,11 @@
   background: #2a9d8f;
   transition: background 0.3s ease;
   border: 1px solid #2a9d8f;
-}
 
-.btn-flat:hover {
-  background: #095256;
-  color: white;
+  &:hover {
+    background: #095256;
+    color: white;
+  }
 }
 
 .btn-search {
@@ -119,10 +129,11 @@
   transition: background 0.3s ease;
   border: transparent;
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-}
-.btn-search:hover {
-  background: #095256;
-  color: white;
+
+  &:hover {
+    background: #095256;
+    color: white;
+  }
 }
 
 .form-control {
@@ -145,9 +156,10 @@ button {
   background: linear-gradient(#167FFB, #0F60C4);
   transition: background 0.3s ease;
   border: 1px solid #0F60C4;
+
+  &:hover {
+    background: linear-gradient(#147EFF, #0F67DA);
+    color: white;
+  }
 }
 
-.btn-gradient:hover {
-  background: linear-gradient(#147EFF, #0F67DA);
-  color: white;
-}
