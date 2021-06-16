@@ -2,6 +2,7 @@
   justify-content: space-between;
   background: linear-gradient(50deg, #095256 0%, #17bebb 100%);
   min-height: 80px;
+  color: #fee9e1;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -27,4 +28,8 @@ a.navbar-brand {
   font-size: 20px;
   font-family: 'Nothing You Could Do', cursive;
   padding-right: 10px;
+}
+
+.nav-link {
+  color: #fee9e1 !important;
 }
