@@ -1,24 +1,55 @@
 require 'faker'
 
 CITIES = [
-  { city: 'Rio', latitude: -22.90684, longitude: -43.17289, overall_score: 9.0, temperature: 31, city_type: 'cheap'},
-  { city: 'Honolulu', latitude: 21.3045, longitude: -157.8557, overall_score: 8.5, temperature: 30, city_type: 'expensive' },
-  { city: 'Bali', latitude: -8.34054, longitude: 115.091945, overall_score: 9.9, temperature: 30, city_type: 'cheap' },
-  { city: 'Rome', latitude: 41.89306, longitude: 12.48278, overall_score: 7.6, temperature: 28, city_type: 'normal' },
-  { city: 'Paris', latitude: 48.85658, longitude: 2.35183, overall_score: 6.5, temperature: 25, city_type: 'expensive' },
-  { city: 'Lisbon', latitude: 38.7263, longitude: -9.1484, overall_score: 8.3, temperature: 25, city_type: 'normal' },
-  { city: 'Berlin', latitude: 52.51667, longitude: 13.38333, overall_score: 8.3, temperature: 22, city_type: 'cheap' },
-  { city: 'Vancouver', latitude: 49.2609, longitude: -123.1139, overall_score: 7.3, temperature: 20, city_type: 'normal' },
-  { city: 'Sydney', latitude: -33.868, longitude: 151.21, overall_score: 6.3, temperature: 28, city_type: 'expensive' },
-  { city: 'Auckland', latitude: -36.85, longitude: 174.78333, overall_score: 6.3, temperature: 28, city_type: 'expensive' },
-  { city: 'Chiang Mai', latitude: 18.83722, longitude: 98.97056, overall_score: 9.7, temperature: 32, city_type: 'cheap' },
-  { city: 'Singapore', latitude: 1.3516161224392, longitude: 103.808052586332, overall_score: 6.2, temperature: 33, city_type: 'expensive' },
-  { city: 'Beirut', latitude: 33.88694, longitude: 35.51306, overall_score: 8.4, temperature: 27, city_type: 'normal' },
-  { city: 'London', latitude: 51.507321899999994, longitude: -0.12764739999999997, overall_score: 7.4, temperature: 21, city_type: 'expensive' },
-  { city: 'Oslo', latitude: 59.855058, longitude: 10.814466, overall_score: 6.2, temperature: 15, city_type: 'expensive' }
+  { city: 'Rio', latitude: -22.90684, longitude: -43.17289, overall_score: 9.0, temperature: 31, city_type: 'cheap',
+    country: 'Brazil', language: 'Portuguese', currency: 'BRL'},
+  { city: 'Honolulu', latitude: 21.3045, longitude: -157.8557, overall_score: 8.5, temperature: 30,
+    city_type: 'expensive', country: 'USA', language: 'English', currency: 'USD' },
+  { city: 'Bali', latitude: -8.34054, longitude: 115.091945, overall_score: 9.9, temperature: 30, city_type: 'cheap',
+    country: 'Indonesia', language: 'Indonesian', currency: 'IDR' },
+  { city: 'Rome', latitude: 41.89306, longitude: 12.48278, overall_score: 7.6, temperature: 28, city_type: 'expensive',
+    country: 'Italy', language: 'Italian', currency: 'EUR' },
+  { city: 'Paris', latitude: 48.85658, longitude: 2.35183, overall_score: 6.5, temperature: 25, city_type: 'expensive',
+    country: 'France', language: 'French', currency: 'EUR' },
+  { city: 'Lisbon', latitude: 38.7263, longitude: -9.1484, overall_score: 8.3, temperature: 25, city_type: 'normal',
+    country: 'Portugal', language: 'Portuguese', currency: 'EUR' },
+  { city: 'Berlin', latitude: 52.51667, longitude: 13.38333, overall_score: 8.3, temperature: 22, city_type: 'expensive',
+    country: 'Germany', language: 'German', currency: 'EUR' },
+  { city: 'Vancouver', latitude: 49.2609, longitude: -123.1139, overall_score: 7.3, temperature: 20, city_type: 'expensive',
+    country: 'Canada', language: 'English/French', currency: 'CAD' },
+  { city: 'Sydney', latitude: -33.868, longitude: 151.21, overall_score: 6.3, temperature: 28, city_type: 'expensive',
+    country: 'Australia', language: 'English', currency: 'AUD' },
+  { city: 'Auckland', latitude: -36.85, longitude: 174.78333, overall_score: 6.3, temperature: 28, city_type: 'expensive',
+    country: 'New Zealand', language: 'English', currency: 'NZD' },
+  { city: 'Chiang Mai', latitude: 18.83722, longitude: 98.97056, overall_score: 9.7, temperature: 32, city_type: 'cheap',
+    country: 'Thailand', language: 'Thai', currency: 'THB' },
+  { city: 'Singapore', latitude: 1.3516161224392, longitude: 103.808052586332, overall_score: 6.2, temperature: 33,
+    city_type: 'expensive', country: 'Brazil', language: 'Portuguese', currency: 'BRL' },
+  { city: 'Beirut', latitude: 33.88694, longitude: 35.51306, overall_score: 8.4, temperature: 27, city_type: 'normal',
+    country: 'Lebanon', language: 'Lebanese Arabic', currency: 'LBP' },
+  { city: 'London', latitude: 51.507321899999994, longitude: -0.12764739999999997, overall_score: 7.4, temperature: 21,
+    city_type: 'expensive', country: 'UK', language: 'English', currency: 'GBP' },
+  { city: 'Oslo', latitude: 59.855058, longitude: 10.814466, overall_score: 6.2, temperature: 15, city_type: 'expensive',
+    country: 'Norway', language: 'Norwegian', currency: 'NOK' },
+  { city: 'Lagos', latitude: 6.455027, longitude: 3.384082, overall_score: 5.2, temperature: 25, city_type: 'cheap',
+    country: 'Nigeria', language: 'English', currency: 'NGN' },
+  { city: 'Cape Town', latitude: -33.925278, longitude: 18.423889, overall_score: 7.2, temperature: 15, city_type: 'normal',
+    country: 'South Africa', language: 'English', currency: 'ZAR' },
+  { city: 'Gaborone', latitude: -24.658333, longitude: 25.908333, overall_score: 6.2, temperature: 25, city_type: 'cheap',
+    country: 'Botswana', language: 'English', currency: 'BWP' },
+  { city: 'Montevideo', latitude: -34.883611, longitude: -56.181944, overall_score: 8.2, temperature: 15, city_type: 'normal',
+    country: 'Uruguay', language: 'Spanish', currency: 'UYU' },
+  { city: 'Puerto Vallarta', latitude: 20.666667, longitude: -105.266667, overall_score: 7.2, temperature: 25, city_type: 'normal',
+    country: 'Mexico', language: 'Spanish', currency: 'MXN' },
+  { city: 'San José', latitude: 9.933333, longitude: -84.083333, overall_score: 8.5, temperature: 30, city_type: 'cheap',
+    country: 'Costa Rica', language: 'Spanish', currency: 'CRC' },
+  { city: 'Casablanca', latitude: 33.533333, longitude: -7.583333, overall_score: 6.7, temperature: 20, city_type: 'cheap',
+    country: 'Morocco', language: 'Moroccan Arabic', currency: 'MAD' },
+  { city: 'Colombo', latitude: 6.934444, longitude: 79.842778, overall_score: 7.1, temperature: 25, city_type: 'cheap',
+    country: 'Sri Lanka', language: 'Sinhala/English', currency: 'LKR' }
 ]
 
-puts "Creating users"
+puts "Seeding DB"
 
 Review.destroy_all
 Message.destroy_all
@@ -38,16 +69,7 @@ puts 'Creating 20 users'
   )
 end
 
-puts "Creating 15 countries"
-15.times do |i|
-  Country.create!(
-    name: Faker::Address.unique.country,
-    language: Faker::Nation.language,
-    currency: Faker::Currency.name
-  )
-end
-
-puts "Creating 15 cities"
+puts "Creating cities with respective countries"
 CITIES.each do |hash|
   data = {
     rent: { coliving: 400*rand(1.1..2.0), hostel: 600*rand(1.1..2.0), airbnb: 800*rand(1.1..2.0), hotel: 1000*rand(1.1..2.0) },
@@ -59,8 +81,10 @@ CITIES.each do |hash|
     transportation: { public_transportation: 60*rand(1.1..3.0), rent_transportation: 100*rand(1.1..3.0) }
   }
 
+  country = Country.create!(name: hash[:country], language: hash[:language], currency: hash[:currency])
+
   city = City.create!(
-    country: Country.all.sample,
+    country: country,
     name: hash[:city],
     latitude: hash[:latitude],
     longitude: hash[:longitude],
