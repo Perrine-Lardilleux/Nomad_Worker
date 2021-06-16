@@ -1,4 +1,6 @@
 <div class="adjust" style="height:100px"></div>
+
+<%= link_to 'Back', city_path(@city), class:"btn-flat" %>
 <h1 style="text-align: center; font-size: 30px; font-weight: bold; color: #c57b57;">Cost of Living Estimator</h1>
 <div class="container my-5">
   <%= render partial: "pages/costs_select", locals: { city: @city }, cached: true %>
