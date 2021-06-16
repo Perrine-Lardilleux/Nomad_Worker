@@ -4,9 +4,7 @@
   <div class="chat-box collapse" id="collapseChat">
     <h1>Nomad Chat</h1>
     <div id="messages" data-chatroom-id="<%= chatroom.id %>">
-      <% chatroom.messages.includes(:user).each do |message| %>
-        <%= render partial: "messages/message", locals: { message: message } %>
-      <% end %>
+      <%= render partial: "messages/message", collection: chatroom.messages.includes(:user), cached: true %>
     </div>
     <%= simple_form_for [ chatroom, Message.new ], remote: true do |f| %>
       <%= f.input :content, input_html: {class:'chat-content'}, label: false, placeholder: "Message ##{chatroom.name}" %>
