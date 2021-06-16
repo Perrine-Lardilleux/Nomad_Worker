@@ -37,7 +37,7 @@ const initMapbox = () => {
           'type': 'Feature',
           'properties': {
             'description': marker.info_window,
-            'CITY_TYPE': marker.city_type
+            // 'CITY_TYPE': marker.city_type
           },
           'geometry': {
             'type': 'Point',
@@ -95,7 +95,7 @@ const initMapbox = () => {
       });
 
       map.on('mouseleave', 'marker', function () {
-        map.getCanvas().style.cursor = '';
+        map.getCanvas().style.cursor = 'pointer';
         popup.remove();
       });
 
