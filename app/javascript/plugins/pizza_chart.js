@@ -67,7 +67,7 @@ const pizzaChart = () => {
       let newPrices = updatePizzaPrices();
       addData(myChart, newPrices)
       let total = Math.round(updatePizzaPrices().reduce((a, b) => a + b, 0));
-      document.getElementById('pizza-total').innerHTML = `TOTAL: $${total}`;
+      document.getElementById('h4-comparator').innerHTML = `TOTAL: $${total}`;
     });
   });
   let myChart = generateChart();
