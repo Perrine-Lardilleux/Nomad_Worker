@@ -17,5 +17,8 @@
     </div>
   <% end %>
 </div>
-
-<%= render partial: "shared/city", locals: { cities: @cities } %>
+<div class="container my-4">
+  <div class="cards">
+    <%= render partial: "shared/city", collection: @cities, cached: true %>
+  </div>
+</div>
