@@ -87,12 +87,11 @@
 }
 
 .btn-round-sm {
-  color: #d4f4dd;
-  border: 1px solid #d4f4dd;
+  color: white;
+  border: 1px solid white;
   padding: 6px 15px;
   border-radius: 50px;
   font-weight: bold;
-  opacity: 0.6;
   transition: opacity 0.3s ease;
   font-size: 15px;
 
@@ -165,6 +164,7 @@ button {
 
 .glowing {
   animation: glowing 1300ms infinite;
+  color: white;
 }
 
 @keyframes glowing {
