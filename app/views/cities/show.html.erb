@@ -1,7 +1,9 @@
 <div class="banner text-center" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path @city.latitude, crop: :fill%>');">
-  <div class="container link navbar-trigger">
-    <h1><strong><%=@city.name%> </strong></h1>
-    <p><br><strong><%=@city.country.name%></strong></p>
+  <div class="container text-center link navbar-trigger" style="color:white;">
+    <div class="place pb-3">
+      <h1><strong><%=@city.name%> </strong></h1>
+      <h5><strong><%=@city.country.name%></strong></h5>
+    </div>
     <div id="wishlists">
       <%= render partial: "cities/wishlists" %>
     </div>
