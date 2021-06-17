@@ -180,16 +180,22 @@ CITIES.each do |hash|
     score: hash[:score],
     data: data
     )
-end
 
-puts "Creating 50 reviews"
-50.times do |i|
+  # Creating 2 reviews per city
+
+  reviews = ["I spent #{rand(2..4)} months working in #{hash[:city]}! Recommend a lot!!", "I love #{hash[:city]}!! It was very fun and had a lot of great places to work from"]
   Review.create!(
-    content: Faker::Lorem.paragraphs(number: rand(2..4))[0].capitalize,
+    content: reviews[0],
     user: User.all.sample,
-    city: City.all.sample
+    city: city
+    )
+  Review.create!(
+    content: reviews[1],
+    user: User.all.sample,
+    city: city
     )
 end
+
 
 puts "Creating 10 wishlists"
 10.times do |i|
