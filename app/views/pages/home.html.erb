@@ -1,9 +1,10 @@
-<div class="banner flex-column justify-content-center navbar-trigger">
-  <%= cl_video_tag("hero_imieze.mp4", autoplay: :autoplay, loop: :loop, muted: :muted, id: 'myVideo')%>
-  <div class = "content align-items-left justify-content-center ", id = 'banner-content'>
+<div class="banner d-flex flex-column justify-content-center align-items-center navbar-trigger">
+  <%= cl_video_tag('https://res.cloudinary.com/dm71o2t6v/video/upload/v1623940903/hero_imieze.mp4', :loop => true, :autoplay => true, id: 'myVideo')%>
+  <%#= cl_video_tag("hero_imieze.mp4", autoplay: :autoplay, loop: :loop, muted: :muted, id: 'myVideo')%>
+  <div class = "content align-items-center justify-content-center " id = 'banner-content'>
       <h1><strong>🌏 Work from</strong> anywhere in <strong>the world</strong></h1>
       <p> get sharp cost of living estimates according to your lifestyle 💰</p>
-    <div class=" col-12 m-0" >
+    <div class=" col-12 m-0 " >
       <%= link_to "Go nomad 💻 ", cities_path, class:'btn btn-round btn-flat-home' %>
     </div>
   </div>
