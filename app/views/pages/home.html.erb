@@ -1,14 +1,14 @@
 <div class="banner flex-column justify-content-center">
-  <%= video_tag("hero.mp4", autoplay: :autoplay, loop: :loop, muted: :muted, id: 'myVideo')%>
+  <%= cl_video_tag("hero_imieze.mp4", autoplay: :autoplay, loop: :loop, muted: :muted, id: 'myVideo')%>
   <div class = "content align-items-left justify-content-center ", id = 'banner-content'>
       <h1><strong>Work from</strong> anywhere in <strong>the world</strong></h1>
-      <p> get accurate cost of living that suits your lifestyle and go global now</p> 
+      <p> get accurate cost of living that suits your lifestyle and go global now</p>
     <div class=" col-12 m-0" >
       <%= link_to "Go explore", cities_path, class:'btn btn-flat-home' %>
     </div>
   </div>
 </div>
- 
+
 <div class="adjust" style="height:60px"></div>
 <%= render partial: 'pages/carousel', cached: true %>
 <div class="row justify-content-center pb-4" style="color: black;">

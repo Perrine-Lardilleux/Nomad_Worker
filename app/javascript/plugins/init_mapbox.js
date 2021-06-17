@@ -57,7 +57,7 @@ const initMapbox = () => {
           'source': 'marker',
           'layout': {
             'icon-image': 'laptop-house',
-            'icon-size': 0.3
+            'icon-size': 0.1
             }
           // 'paint': {
           //   'icon-color': [
