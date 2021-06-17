@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_15_145639) do
+ActiveRecord::Schema.define(version: 2021_06_17_034019) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,7 +44,6 @@ ActiveRecord::Schema.define(version: 2021_06_15_145639) do
 
   create_table "cities", force: :cascade do |t|
     t.string "name"
-    t.float "temperature"
     t.jsonb "data"
     t.bigint "country_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -53,6 +52,7 @@ ActiveRecord::Schema.define(version: 2021_06_15_145639) do
     t.float "longitude"
     t.float "overall_score"
     t.string "city_type"
+    t.jsonb "weather"
     t.index ["country_id"], name: "index_cities_on_country_id"
   end
 
