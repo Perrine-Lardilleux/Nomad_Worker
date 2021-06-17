@@ -34,20 +34,20 @@
 }
 
 .btn-round-full {
-  background: white;
-  color: #2a9d8f;
+  color: white;
+  background-color: #2a9d8f;
   font-weight: bold;
   border: 2px solid #2a9d8f;
   padding: 10px 24px;
   border-radius: 50px;
-  opacity: 1;
+  opacity: 0.6;
   transition: opacity 0.3s ease;
 
   &:hover {
     opacity: 1;
     text-decoration: none;
     color: #095256;
-    font-weight: bolder;
+    color: white;
     
   }
 }
@@ -104,6 +104,7 @@
   &:hover {
     opacity: 1;
     text-decoration: none;
+    color: #095256;
     border: 1px solid #095256;
   }
 }
