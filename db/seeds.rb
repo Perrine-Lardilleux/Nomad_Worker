@@ -1,7 +1,7 @@
 require 'faker'
 
 CITIES = [
-    { city: 'Rio', latitude: -22.90684, longitude: -43.17289, overall_score: 9.0, temperature: 31, city_type: 'cheap',
+    { city: 'Rio de Janeiro', latitude: -22.90684, longitude: -43.17289, overall_score: 9.0, temperature: 31, city_type: 'cheap',
     country: 'Brazil', language: 'Portuguese', currency: 'BRL', weather_id: 3451190},
   { city: 'Honolulu', latitude: 21.3045, longitude: -157.8557, overall_score: 8.5, temperature: 30,
     city_type: 'expensive', country: 'USA', language: 'English', currency: 'USD', weather_id: 5856195 },
