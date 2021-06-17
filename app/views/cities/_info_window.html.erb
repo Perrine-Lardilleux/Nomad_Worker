@@ -2,8 +2,8 @@
   <div class = "mapboxgl-popup-content">
     <h5><strong><%= link_to city.name, city_path(city) %> </strong></h5>
     <p>
-      ☀️ Median summer temperature: <%= temp_average(city, summer) %> °C
-      <br> ❄️ Median winter temperature: <%= temp_average(city, winter) %> °C
+      ☀️ Median summer temperature: <%= temp_average(city, 'summer') %> °C
+      <br> ❄️ Median winter temperature: <%= temp_average(city, 'winter') %> °C
       <br><br><strong> Overall Score: <%= city.overall_score %> </strong>
     </p>
   </div>
