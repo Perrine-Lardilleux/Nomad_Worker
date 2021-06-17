@@ -26,6 +26,34 @@
   font-weight: bold;
 }
 
+.banner-city {
+  background-size: cover;
+  background-position: center;
+  padding: 150px 0;
+  height: 600px;
+  display: flex;
+}
+
+.banner-city h1 {
+  margin-top: 140px;
+  margin-left: 12px;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,1);
+  font-size: 40px;
+  font-weight: bolder;
+  position: relative;
+}
+
+.banner-city p {
+  position: relative;
+  font-size: 24px;
+  color: white;
+  opacity: 1;
+  text-shadow: 1px 1px 3px rgba(0,0,0,1);
+  margin-left: 80px;
+  font-weight: bold;
+}
+
 #myVideo {
  width: 100vw;
  height: 85vh;
@@ -38,4 +66,8 @@
 
 #banner-content{
   margin-left: 100px;
+}
+.adjust {
+  background-size: cover;
+  height: 150px;
 }
