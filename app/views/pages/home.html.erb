@@ -1,5 +1,7 @@
-<div class="banner d-flex flex-column justify-content-center align-items-center navbar-trigger">
-  <%= cl_video_tag("https://res.cloudinary.com/dm71o2t6v/video/upload/v1623940903/hero_imieze.mp4", autoplay: :autoplay, loop: :loop, muted: :muted, id: 'myVideo')%>
+<% photo = 'https://res.cloudinary.com/dm71o2t6v/image/upload/v1623952626/P1020324_acghqt.jpg' %>
+<div class="banner d-flex flex-column justify-content-center align-items-center navbar-trigger" style='background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url("<%= cl_image_tag photo, crop: :fill%>");'>
+
+  <%#= cl_video_tag("hero_imieze", autoplay: :autoplay, loop: :loop, muted: :muted, id: 'myVideo') if request.path == '/'%>
   <div class = "content align-items-center justify-content-center " id = 'banner-content'>
       <h1><strong>🌏 Work from</strong> anywhere in <strong>the world</strong></h1>
       <p> get sharp cost of living estimates according to your lifestyle 💰</p>
