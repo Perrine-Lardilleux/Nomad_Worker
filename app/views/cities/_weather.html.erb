@@ -1,1 +1,26 @@
-<div class="card pl-3 pt-3 collapse" id="collapseWeather" data-parent="#menu"><p>Placeholder</p></div>
+<div class="card pl-3 pt-3 collapse" id="collapseWeather" data-parent="#menu">
+  <h3>Here's the historical weather data for <%= city.name %></h3>
+  <p>Daily mean temperature by month, in celsius</p>
+  <ul class="list-group list-group-horizontal city-historic-temp">
+    <% city.weather['temp'].each do |month| %>
+      <li class="list-group-item"><%= month %></li>
+    <% end %>
+  </ul>
+
+  <p>Average rainfall by month, in mm </p>
+    <ul class="list-group list-group-horizontal city-historic-temp">
+    <% city.weather['rain'].each do |month| %>
+      <li class="list-group-item"><%= month %></li>
+    <% end %>
+  </ul>
+
+  <p>Mean monthly sunshine hours</p>
+    <ul class="list-group list-group-horizontal city-historic-temp">
+    <% city.weather['sunshine'].each do |month| %>
+      <li class="list-group-item"><%= month %></li>
+    <% end %>
+  </ul>
+
+  <p>This is a test for the average summer temp: <%= temp_average(city, 'summer') %></p>
+  <p>This is a test for the average winter temp: <%= temp_average(city, 'winter') %></p>
+</div>
