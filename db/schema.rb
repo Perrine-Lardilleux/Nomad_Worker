@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_17_034019) do
+ActiveRecord::Schema.define(version: 2021_06_17_141918) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 2021_06_17_034019) do
     t.float "overall_score"
     t.string "city_type"
     t.jsonb "weather"
+    t.jsonb "score"
     t.index ["country_id"], name: "index_cities_on_country_id"
   end
 

@@ -1,0 +1,14 @@
+<div class="card pl-3 pt-3 collapse" id="collapseScore" data-parent="#menu">
+  <h3 class="pb-2 border-bottom">Overall Score: <div class="stars" style="--rating: <%= @city.overall_score %>;"></div></h3>
+  <div class="row py-2">
+    <div class="col-6">
+      <h5>👌 Safety: <div class="stars" style="--rating: <%= @city.score["safety"] %>;"></div></h5>
+      <h5>📡 Internet: <div class="stars" style="--rating: <%= @city.score["internet"] %>;"></div></h5>
+      <h5>😝 Fun: <div class="stars" style="--rating: <%= @city.score["fun"] %>;"></div></h5>
+    </div>
+    <div class="col-6">
+      <h5>💨 Air quality: <div class="stars" style="--rating: <%= @city.score["air"] %>;"></div></h5>
+      <h5>🎓 English speaking: <div class="stars" style="--rating: <%= @city.score["english"] %>;"></div></h5>
+    </div>
+  </div>
+</div>
