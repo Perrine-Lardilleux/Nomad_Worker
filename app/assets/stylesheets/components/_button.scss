@@ -13,8 +13,11 @@
 }
 
 .btn-round {
-  color: #c57b57;
+
+  color: white;
+  background: #c57b57;
   font-weight: bolder;
+  font-size: 20px;
   border: 2px solid #c57b57;
   padding: 10px 24px;
   border-radius: 50px;
@@ -22,27 +25,30 @@
   transition: opacity 0.3s ease;
 
   &:hover {
+    color: white;
     opacity: 1;
     text-decoration: none;
-    color: #095256;
+    background: #CD853F;
+    border: 1px solid #CD853F;
   }
 }
 
 .btn-round-full {
-  color: white;
-  background-color: #2a9d8f;
+  background: white;
+  color: #2a9d8f;
   font-weight: bold;
   border: 2px solid #2a9d8f;
   padding: 10px 24px;
   border-radius: 50px;
-  opacity: 0.6;
+  opacity: 1;
   transition: opacity 0.3s ease;
 
   &:hover {
     opacity: 1;
     text-decoration: none;
     color: #095256;
-    color: white;
+    font-weight: bolder;
+    
   }
 }
 
@@ -98,7 +104,6 @@
   &:hover {
     opacity: 1;
     text-decoration: none;
-    color: #095256;
     border: 1px solid #095256;
   }
 }
