@@ -87,12 +87,11 @@
 }
 
 .btn-round-sm {
-  color: #d4f4dd;
-  border: 1px solid #d4f4dd;
+  color: white;
+  border: 1px solid white;
   padding: 6px 15px;
   border-radius: 50px;
   font-weight: bold;
-  opacity: 0.6;
   transition: opacity 0.3s ease;
   font-size: 15px;
 
@@ -115,7 +114,31 @@
   &:hover {
     background: #095256;
     color: white;
+    border: 1px solid #095256;
   }
+
+
+}
+
+.btn-flat-home {
+  font-weight: bolder;
+  font-size: 20px;
+  color: white;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+  padding: 8px 24px;
+  border-radius: 50px;
+  background: #2a9d8f;
+  transition: background 0.3s ease;
+  border: 1px solid #2a9d8f;
+  margin-left: 270px;
+
+  &:hover {
+    background: #095256;
+    color: white;
+    border: 1px solid #095256;
+  }
+
 }
 
 .btn-search {
@@ -165,6 +188,7 @@ button {
 
 .glowing {
   animation: glowing 1300ms infinite;
+  color: white;
 }
 
 @keyframes glowing {

@@ -3,17 +3,26 @@
 <div class="container my-5">
   <div class="content mb-5">
     <div class="card pl-3 pt-3">
-      <h5 class="card-title font-weight-bold border-bottom pb-2">Global informations:</h5>
-      <p><strong>☀️ Median yearly temperature: </strong> <%=  @city.temperature %></p>
+      <p><strong>☀️ Median yearly temperature: </strong> <%=  @city.weather['temp'][-1] %></p>
       <p><strong>📢 Language: </strong> <%=  @city.country.language %></p>
       <p><strong>💵 Currency: </strong> <%=  @city.country.currency %></p>
     </div>
     <div class="mt-5 ml-5">
       <div class="card my-4 text-center" style="width: 18rem; background-color: #006d77; color: white;">
         <div class="card-body">
+          <h5 class="card-title font-weight-bold pb-2">More city info</h5>
+          <p class="card-text">
+            <%= link_to "See more", city_url(@city), class:"btn-round-sm", target: "_blank" %>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="mt-5 ml-5">
+      <div class="card my-4 text-center" style="width: 18rem; background-color: #006d77; color: white;">
+        <div class="card-body">
           <h5 class="card-title font-weight-bold pb-2">Cost of Living Estimator</h5>
           <p class="card-text">
-            <%= link_to "See more", city_estimator_url(@city), class:"btn-round-sm" %>
+            <%= link_to "See more", city_estimator_url(@city), class:"btn-round-sm", target: "_blank" %>
           </p>
         </div>
       </div>
