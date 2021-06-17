@@ -47,7 +47,7 @@ const initMapbox = () => {
       });
       map.addSource('marker', info);
       // Add symbol for marker
-      map.loadImage('https://res.cloudinary.com/dm71o2t6v/image/upload/v1623866829/Screen_Shot_2021-06-16_at_15.02.45_xpf8ar.png', function (error, image) {
+      map.loadImage('https://res.cloudinary.com/dm71o2t6v/image/upload/v1623937431/maplogo_1_mwgsgz.png', function (error, image) {
         if (error) throw error;
         map.addImage('laptop-house', image);
         // Add a layer showing the places.
@@ -57,7 +57,7 @@ const initMapbox = () => {
           'source': 'marker',
           'layout': {
             'icon-image': 'laptop-house',
-            'icon-size': 0.3
+            'icon-size': 0.1
             }
           // 'paint': {
           //   'icon-color': [
