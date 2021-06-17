@@ -16,4 +16,24 @@
     <p>Check out some discounts:</p>
     <li>Skyscanner (10%): www.skyscanner.com/nomadworkers</li>
   </div>
+  <div class="mt-5 ml-5">
+    <div class="card my-4 text-center" style="width: 18rem; background-color: #006d77; color: white;">
+      <div class="card-body">
+        <h5 class="card-title font-weight-bold pb-2">More city info</h5>
+        <p class="card-text">
+          <%= link_to "See more", city_url(@city), class:"btn-round-sm", target: "_blank" %>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="mt-5 ml-5">
+    <div class="card my-4 text-center" style="width: 18rem; background-color: #006d77; color: white;">
+      <div class="card-body">
+        <h5 class="card-title font-weight-bold pb-2">Cost of Living Estimator</h5>
+        <p class="card-text">
+          <%= link_to "See more", city_estimator_url(@city), class:"btn-round-sm", target: "_blank" %>
+        </p>
+      </div>
+    </div>
+  </div>
 </div>
