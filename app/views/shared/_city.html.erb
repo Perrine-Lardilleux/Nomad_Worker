@@ -1,7 +1,8 @@
 <div class="card-container">
   <%= render partial: "shared/heart", locals: { city: city } %>
   <%= link_to city_path(city) do %>
-  <div id="city-<%=city.id%>" class="card-category" style="background-image: url('<%= cl_image_path city.name, crop: :fill%>')">
+  <% filename = "cities/#{city.name.downcase.split[0]}.jpg" %>
+  <div id="city-<%=city.id%>" class="card-category" style="background-image: url('<%= image_path filename, crop: :fill%>')">
     <span class="link">
       <%= city.name %>
     </span>
